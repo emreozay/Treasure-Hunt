@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -33,7 +32,7 @@ public class PlayerController : MonoBehaviour
     private void MoveWithJoystick()
     {
         playerRigidbody.velocity = new Vector2(floatingJoystick.Horizontal, floatingJoystick.Vertical).normalized * moveSpeed;
-
+        
         if (floatingJoystick.Horizontal != 0 || floatingJoystick.Vertical != 0)
         {
             animator.SetBool("isRunning", true);
