@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3970448313193486422}
   - component: {fileID: 3970448313193486423}
   - component: {fileID: 3970448313193486417}
+  - component: {fileID: 8845478505060770527}
   m_Layer: 0
   m_Name: TreeGreen
   m_TagString: Untagged
@@ -111,3 +112,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2634705, y: 2.3772016}
   m_EdgeRadius: 0
+--- !u!114 &8845478505060770527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3970448313193486420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
