@@ -67,12 +67,13 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Dig()
     {
+        animator.SetBool("isRunning", false);
         animator.SetTrigger("isDigging");
         Instantiate(hole, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(2f);
         pouch.transform.position = transform.position;
         pouch.SetActive(true);
-        
+
         yield return new WaitForSeconds(1f);
         pouch.SetActive(false);
         isMoving = true;
