@@ -23,6 +23,9 @@ public class Sensor : MonoBehaviour
     {
         foreach (Transform hole in holeParent)
         {
+            if (!hole.CompareTag("Hole"))
+                return;
+
             float distance = Vector2.Distance(transform.position, hole.position);
 
             if(distance < 10f)

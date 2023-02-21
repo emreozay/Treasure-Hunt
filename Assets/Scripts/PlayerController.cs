@@ -8,13 +8,6 @@ public class PlayerController : MonoBehaviour
     private FloatingJoystick floatingJoystick;
 
     [SerializeField]
-    private Transform holeParent;
-    [SerializeField]
-    private GameObject hole;
-    [SerializeField]
-    private GameObject pouch;
-
-    [SerializeField]
     private float moveSpeed;
 
     private Animator animator;
@@ -48,6 +41,7 @@ public class PlayerController : MonoBehaviour
         if (floatingJoystick.Horizontal != 0 || floatingJoystick.Vertical != 0)
         {
             animator.SetBool("isRunning", true);
+
             animator.SetFloat("Horizontal", floatingJoystick.Horizontal);
             animator.SetFloat("Vertical", floatingJoystick.Vertical);
         }
@@ -57,28 +51,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void StopMoving()
     {
         playerRigidbody.velocity = Vector2.zero;
         isMoving = false;
-
-        collision.gameObject.SetActive(false);
-
-        StartCoroutine(Dig());
+        animator.SetBool("isRunning", false);
     }
 
-    private IEnumerator Dig()
+    public void ContinueMoving()
     {
-        animator.SetBool("isRunning", false);
-        animator.SetTrigger("isDigging");
-        Instantiate(hole, transform.position, Quaternion.identity, holeParent);
-
-        yield return new WaitForSeconds(2f);
-
-        pouch.SetActive(true);
-
-        yield return new WaitForSeconds(1f);
-        pouch.SetActive(false);
         isMoving = true;
+        animator.SetBool("isRunning", true);
     }
 }
