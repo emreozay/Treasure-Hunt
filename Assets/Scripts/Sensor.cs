@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Sensor : MonoBehaviour
@@ -21,30 +22,39 @@ public class Sensor : MonoBehaviour
 
     private void FindHoleDistance()
     {
+        Transform closestHole = holeParent.GetChild(0);
+        float minDistance = 100f;
+
         foreach (Transform hole in holeParent)
         {
             if (!hole.CompareTag("Hole"))
-                return;
+                continue;
 
             float distance = Vector2.Distance(transform.position, hole.position);
 
-            if(distance < 10f)
+            if(distance < minDistance)
             {
-                spriteRenderer.enabled = true;
-
-                if (distance < 4f)
-                    spriteRenderer.sprite = sensorHalos[2];
-                else if (distance < 7f)
-                    spriteRenderer.sprite = sensorHalos[1];
-                else
-                    spriteRenderer.sprite = sensorHalos[0];
+                minDistance = distance;
+                closestHole = hole;
             }
-            else
-            {
-                spriteRenderer.enabled = false;
-            }
-
-            Debug.Log(hole.name + " - " + distance, hole.gameObject);
         }
+
+        if (minDistance < 10f)
+        {
+            spriteRenderer.enabled = true;
+
+            if (minDistance < 4f)
+                spriteRenderer.sprite = sensorHalos[2];
+            else if (minDistance < 7f)
+                spriteRenderer.sprite = sensorHalos[1];
+            else
+                spriteRenderer.sprite = sensorHalos[0];
+        }
+        else
+        {
+            spriteRenderer.enabled = false;
+        }
+
+        Debug.Log(closestHole.name + " - " + minDistance, closestHole.gameObject);
     }
 }
