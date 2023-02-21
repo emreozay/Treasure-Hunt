@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Movement
 {
     [SerializeField]
     private FloatingJoystick floatingJoystick;
@@ -10,17 +10,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float movementSpeed;
 
-    public float MovementSpeed { get { return movementSpeed; } set { movementSpeed = value; } }
-
-    private Animator animator;
     private Rigidbody2D playerRigidbody;
 
-    private bool isMoving = true;
+    public float MovementSpeed { get { return movementSpeed; } set { movementSpeed = value; } }
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
         playerRigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -30,15 +27,22 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MoveWithJoystick();
+        Move();
+        Animate();
     }
 
-    private void MoveWithJoystick()
+    protected override void Move()
     {
         if (!isMoving)
             return;
 
         playerRigidbody.velocity = new Vector2(floatingJoystick.Horizontal, floatingJoystick.Vertical).normalized * movementSpeed;
+    }
+
+    protected override void Animate()
+    {
+        if (!isMoving)
+            return;
 
         if (floatingJoystick.Horizontal != 0 || floatingJoystick.Vertical != 0)
         {
@@ -53,16 +57,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void StopMoving()
+    public override void ContinueMoving()
+    {
+        isMoving = true;
+        animator.SetBool("isRunning", true);
+    }
+
+    public override void StopMoving()
     {
         playerRigidbody.velocity = Vector2.zero;
         isMoving = false;
         animator.SetBool("isRunning", false);
-    }
-
-    public void ContinueMoving()
-    {
-        isMoving = true;
-        animator.SetBool("isRunning", true);
     }
 }

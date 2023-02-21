@@ -8,12 +8,12 @@ public class CollisionController : MonoBehaviour
     private GameObject pouch;
 
     private Animator animator;
-    private PlayerController playerController;
+    private Movement movement;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        playerController = GetComponent<PlayerController>();
+        movement = GetComponent<Movement>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -28,7 +28,7 @@ public class CollisionController : MonoBehaviour
     {
         newHole.tag = "DugHole";
 
-        playerController.StopMoving();
+        movement.StopMoving();
         newHole.position = transform.position;
 
         animator.SetTrigger("isDigging");
@@ -41,6 +41,6 @@ public class CollisionController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         pouch.SetActive(false);
 
-        playerController.ContinueMoving();
+        movement.ContinueMoving();
     }
 }

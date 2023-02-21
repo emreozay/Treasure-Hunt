@@ -65,7 +65,5 @@ public class Sensor : MonoBehaviour
             spriteRenderer.enabled = false;
             playerController.MovementSpeed = 5;
         }
-
-        Debug.Log(closestHole.name + " - " + minDistance, closestHole.gameObject);
     }
 }

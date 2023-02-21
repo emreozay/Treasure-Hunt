@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : Movement
 {
     [SerializeField]
     private Vector3 target;
 
-    private Animator animator;
+    [SerializeField]
+    private bool newTarget;
 
     private NavMeshAgent agent;
 
-    private bool isMoving = true;
+    [SerializeField]
+    private Transform holeParent;
 
     private void Awake()
     {
@@ -23,19 +25,42 @@ public class EnemyMovement : MonoBehaviour
         agent.updateUpAxis = false;
     }
 
-    void Update()
+    private void Start()
     {
-        CheckAnimations();
-        SetAgentPosition();
+        Move();
     }
 
-    private void CheckAnimations()
+    void Update()
+    {/*
+        if(newTarget)
+            Move();
+        */
+        Animate();
+    }
+
+    protected override void Move()
+    {
+        //agent.SetDestination(Vector2.left*5f);
+
+        foreach (Transform hole in holeParent)
+        {
+            if (hole.CompareTag("Hole"))
+            {
+                agent.SetDestination(hole.position);
+                return;
+            }
+        }
+
+        //agent.SetDestination(new Vector3(target.x, target.y, transform.position.z));
+    }
+
+    protected override void Animate()
     {
         if (!isMoving)
             return;
 
         Vector2 agentVelocity = agent.velocity.normalized;
-
+        
         if (agentVelocity != Vector2.zero)
         {
             animator.SetBool("isRunning", true);
@@ -49,9 +74,21 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void SetAgentPosition()
+    public override void ContinueMoving()
     {
-        //agent.SetDestination(Vector2.left*5f);
-        agent.SetDestination(new Vector3(target.x, target.y, transform.position.z));
+        isMoving = true;
+        agent.isStopped = false;
+        Move();
+        animator.SetBool("isRunning", true);
+    }
+
+    public override void StopMoving()
+    {
+        agent.velocity = Vector2.zero;
+        agent.isStopped = true;
+        agent.ResetPath();
+
+        isMoving = false;
+        animator.SetBool("isRunning", false);
     }
 }
