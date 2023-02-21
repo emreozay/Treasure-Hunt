@@ -688,9 +688,9 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 4bd7e9aa3b3a8694b90fc72e4bd6c246, type: 2}
+  m_AnimatorController: {fileID: 9100000, guid: 8cb0f9e089ffb5d4a965e810272e9291, type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: -1192584961951550314, guid: 4bd7e9aa3b3a8694b90fc72e4bd6c246, type: 2}
+  - m_Target: {fileID: 309518733351334054, guid: 8cb0f9e089ffb5d4a965e810272e9291, type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -798,22 +798,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Sprites
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Sprites
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Unity Projects\Treasure Hunt
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 43}
-    m_SelectedIDs: 346a0000
-    m_LastClickedID: 27188
-    m_ExpandedIDs: 00000000346a0000366a000000ca9a3b
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 566a0000
+    m_LastClickedID: 27222
+    m_ExpandedIDs: 00000000346a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -841,7 +841,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000346a0000366a0000
+    m_ExpandedIDs: 00000000346a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -896,7 +896,7 @@ MonoBehaviour:
     m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
-  m_DirectoriesAreaWidth: 115
+  m_DirectoriesAreaWidth: 116
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52

@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
     private FloatingJoystick floatingJoystick;
 
     [SerializeField]
-    private float moveSpeed;
+    private float movementSpeed;
+
+    public float MovementSpeed { get { return movementSpeed; } set { movementSpeed = value; } }
 
     private Animator animator;
     private Rigidbody2D playerRigidbody;
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
         if (!isMoving)
             return;
 
-        playerRigidbody.velocity = new Vector2(floatingJoystick.Horizontal, floatingJoystick.Vertical).normalized * moveSpeed;
+        playerRigidbody.velocity = new Vector2(floatingJoystick.Horizontal, floatingJoystick.Vertical).normalized * movementSpeed;
 
         if (floatingJoystick.Horizontal != 0 || floatingJoystick.Vertical != 0)
         {
