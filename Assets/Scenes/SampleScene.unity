@@ -316,7 +316,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &316307521
 GameObject:
@@ -432,6 +432,11 @@ BoxCollider2D:
 --- !u!1 &336566762 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7353502306323073159, guid: a13201a16c3822c4691a0c7401529b9f, type: 3}
+  m_PrefabInstance: {fileID: 992965118}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &336566765 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7353502306323073154, guid: a13201a16c3822c4691a0c7401529b9f, type: 3}
   m_PrefabInstance: {fileID: 992965118}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
@@ -787,11 +792,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1739894525}
     m_Modifications:
     - target: {fileID: 7353502306323073154, guid: a13201a16c3822c4691a0c7401529b9f, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7353502306323073154, guid: a13201a16c3822c4691a0c7401529b9f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -799,7 +804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7353502306323073154, guid: a13201a16c3822c4691a0c7401529b9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7353502306323073154, guid: a13201a16c3822c4691a0c7401529b9f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1345,6 +1350,7 @@ Transform:
   m_Children:
   - {fileID: 1522549302}
   - {fileID: 556603031}
+  - {fileID: 336566765}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1387,9 +1393,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatingJoystick: {fileID: 1857987774}
-  moveSpeed: 5
+  holeParent: {fileID: 1749027270}
   hole: {fileID: 7342364842466097722, guid: 2a1db4c5980c8a34db99830a84db5627, type: 3}
   pouch: {fileID: 336566762}
+  moveSpeed: 5
 --- !u!50 &1739894529
 Rigidbody2D:
   serializedVersion: 4
@@ -1411,6 +1418,37 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!1 &1749027269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1749027270}
+  m_Layer: 0
+  m_Name: Holes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1749027270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749027269}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1857987774 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}

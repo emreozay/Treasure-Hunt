@@ -7,16 +7,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private FloatingJoystick floatingJoystick;
 
-    private Animator animator;
-    private Rigidbody2D playerRigidbody;
-
     [SerializeField]
-    private float moveSpeed;
-
+    private Transform holeParent;
     [SerializeField]
     private GameObject hole;
     [SerializeField]
     private GameObject pouch;
+
+    [SerializeField]
+    private float moveSpeed;
+
+    private Animator animator;
+    private Rigidbody2D playerRigidbody;
 
     private bool isMoving = true;
 
@@ -69,9 +71,10 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetBool("isRunning", false);
         animator.SetTrigger("isDigging");
-        Instantiate(hole, transform.position, Quaternion.identity);
+        Instantiate(hole, transform.position, Quaternion.identity, holeParent);
+
         yield return new WaitForSeconds(2f);
-        pouch.transform.position = transform.position;
+
         pouch.SetActive(true);
 
         yield return new WaitForSeconds(1f);
