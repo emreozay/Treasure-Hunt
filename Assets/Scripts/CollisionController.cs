@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CollisionController : MonoBehaviour
@@ -7,8 +8,13 @@ public class CollisionController : MonoBehaviour
     [SerializeField]
     private GameObject pouch;
 
+    [SerializeField]
+    private Transform scoreTextParent; // Change this later!!!
+
     private Animator animator;
     private Movement movement;
+
+    private int score;
 
     private void Awake()
     {
@@ -40,6 +46,9 @@ public class CollisionController : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         pouch.SetActive(false);
+
+        score++;
+        UIManager.Instance.SetScoreText(scoreTextParent, score);
 
         movement.ContinueMoving();
     }
