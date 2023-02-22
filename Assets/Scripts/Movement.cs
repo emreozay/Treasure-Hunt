@@ -2,6 +2,8 @@ using UnityEngine;
 
 public abstract class Movement : MonoBehaviour
 {
+    public abstract float MovementSpeed { get; set; }
+
     protected Animator animator;
 
     protected bool isMoving = true;

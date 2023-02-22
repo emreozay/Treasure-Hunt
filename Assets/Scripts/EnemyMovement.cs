@@ -16,6 +16,8 @@ public class EnemyMovement : Movement
     [SerializeField]
     private Transform holeParent;
 
+    public override float MovementSpeed { get => agent.speed; set => agent.speed = value; }
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -27,6 +29,7 @@ public class EnemyMovement : Movement
 
     private void Start()
     {
+        agent.speed = MovementSpeed;
         Move();
     }
 

@@ -7,7 +7,7 @@ public class Sensor : MonoBehaviour
     [SerializeField]
     private Sprite[] sensorHalos;
     [SerializeField]
-    private PlayerController playerController;
+    private Movement movement;
 
     private SpriteRenderer spriteRenderer;
 
@@ -47,23 +47,23 @@ public class Sensor : MonoBehaviour
             if (minDistance < 4f)
             {
                 spriteRenderer.sprite = sensorHalos[2];
-                playerController.MovementSpeed = 2;
+                movement.MovementSpeed = 2;
             }
             else if (minDistance < 7f)
             {
                 spriteRenderer.sprite = sensorHalos[1];
-                playerController.MovementSpeed = 3;
+                movement.MovementSpeed = 3;
             }
             else
             {
                 spriteRenderer.sprite = sensorHalos[0];
-                playerController.MovementSpeed = 4;
+                movement.MovementSpeed = 4;
             }
         }
         else
         {
             spriteRenderer.enabled = false;
-            playerController.MovementSpeed = 5;
+            movement.MovementSpeed = 5;
         }
     }
 }

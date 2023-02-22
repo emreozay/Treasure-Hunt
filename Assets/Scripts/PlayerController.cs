@@ -6,13 +6,12 @@ public class PlayerController : Movement
 {
     [SerializeField]
     private FloatingJoystick floatingJoystick;
-
     [SerializeField]
     private float movementSpeed;
 
     private Rigidbody2D playerRigidbody;
 
-    public float MovementSpeed { get { return movementSpeed; } set { movementSpeed = value; } }
+    public override float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
 
     private void Awake()
     {
