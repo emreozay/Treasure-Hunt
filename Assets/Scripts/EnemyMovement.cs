@@ -16,7 +16,12 @@ public class EnemyMovement : Movement
     [SerializeField]
     private Transform holeParent;
 
-    public override float MovementSpeed { get => agent.speed; set => agent.speed = value; }
+    [SerializeField]
+    private Color newColor;
+    private Vector3 newDestination;
+    private Vector3 currentDestination;
+    private Vector3 randomDestination;
+    public override float MovementSpeed { get => agent.speed; set => SetNewDestination(value); }
 
     private void Awake()
     {
@@ -30,31 +35,24 @@ public class EnemyMovement : Movement
     private void Start()
     {
         agent.speed = MovementSpeed;
-        Move();
+
+        SetRandomDestination();
     }
 
     void Update()
-    {/*
-        if(newTarget)
-            Move();
-        */
+    {
+        Move();
         Animate();
     }
 
     protected override void Move()
     {
-        //agent.SetDestination(Vector2.left*5f);
-
-        foreach (Transform hole in holeParent)
+        if ((agent.remainingDistance < 0.1f && isMoving) || agent.pathStatus == NavMeshPathStatus.PathPartial || agent.pathStatus == NavMeshPathStatus.PathInvalid)
         {
-            if (hole.CompareTag("Hole"))
-            {
-                agent.SetDestination(hole.position);
-                return;
-            }
-        }
+            currentDestination = agent.destination;
 
-        //agent.SetDestination(new Vector3(target.x, target.y, transform.position.z));
+            SetRandomDestination();
+        }
     }
 
     protected override void Animate()
@@ -63,7 +61,7 @@ public class EnemyMovement : Movement
             return;
 
         Vector2 agentVelocity = agent.velocity.normalized;
-        
+
         if (agentVelocity != Vector2.zero)
         {
             animator.SetBool("isRunning", true);
@@ -81,7 +79,7 @@ public class EnemyMovement : Movement
     {
         isMoving = true;
         agent.isStopped = false;
-        Move();
+        SetRandomDestination();
         animator.SetBool("isRunning", true);
     }
 
@@ -93,5 +91,46 @@ public class EnemyMovement : Movement
 
         isMoving = false;
         animator.SetBool("isRunning", false);
+    }
+
+    private void SetRandomDestination()
+    {
+        Vector3 newRandomDestination = new Vector3(Random.Range(-15f, 15f), Random.Range(-20f, 20f), 0);
+        randomDestination = newRandomDestination;
+        agent.SetDestination(newRandomDestination);
+    }
+
+    private void SetNewDestination(float newSpeed)
+    {
+        float oldSpeed = agent.speed;
+        agent.speed = newSpeed;
+
+        if (!isMoving)
+            return;
+
+        if (oldSpeed < newSpeed)
+        {
+            Vector3 positionDifference = agent.destination - transform.position;
+            newDestination = transform.position - (positionDifference.normalized * 3f);
+            //newDestination = new Vector3(Mathf.Clamp(newDestination.x, -15f, 15f), Mathf.Clamp(newDestination.y, -20f, 20f), 0);
+
+            newDestination.x += Mathf.Cos(Random.Range(180f, 360f) / (180f / Mathf.PI)) * 3f;
+            newDestination.y += Mathf.Sin(Random.Range(180f, 360f) / (180f / Mathf.PI)) * 3f;
+            newDestination = new Vector3(Mathf.Clamp(newDestination.x, -15f, 15f), Mathf.Clamp(newDestination.y, -20f, 20f), 0);
+
+            agent.SetDestination(newDestination);
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = newColor;
+        Gizmos.DrawSphere(newDestination, 0.5f);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(randomDestination, 0.5f);
+
+        Gizmos.color = Color.white;
+        Gizmos.DrawSphere(currentDestination, 0.5f);
     }
 }
