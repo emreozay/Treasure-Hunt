@@ -34,6 +34,8 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 0;
+
         StartCoroutine(Timer());
     }
 
