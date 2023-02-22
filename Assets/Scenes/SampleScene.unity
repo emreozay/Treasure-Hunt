@@ -988,29 +988,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
-      propertyPath: target.x
-      value: -14
-      objectReference: {fileID: 0}
-    - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
-      propertyPath: target.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: holeParent
       value: 
       objectReference: {fileID: 1749027270}
-    - target: {fileID: 2801471593382308916, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
-      propertyPath: emitterVelocityMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7136342947491753380, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
+    - target: {fileID: 2037222689, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: holeParent
       value: 
       objectReference: {fileID: 1749027270}
-    - target: {fileID: 7136342947491753380, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7136342948117528928, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: m_RootOrder
       value: 5
