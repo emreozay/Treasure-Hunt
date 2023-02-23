@@ -1120,6 +1120,10 @@ PrefabInstance:
       propertyPath: holeParent
       value: 
       objectReference: {fileID: 1749027270}
+    - target: {fileID: 6311555926322579482, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
+      propertyPath: m_text
+      value: Bartens
+      objectReference: {fileID: 0}
     - target: {fileID: 7136342948117528735, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: scoreText
       value: 
@@ -1138,7 +1142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7136342948117528928, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7136342948117528928, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6191,11 +6195,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1620080987}
   m_CullTransparentMesh: 1
---- !u!1 &1620129685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7136342948117528935, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
-  m_PrefabInstance: {fileID: 7136342946581606301}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1620763384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6580,19 +6579,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7136342948117528928, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
   m_PrefabInstance: {fileID: 7136342946581606301}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1739894532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1620129685}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72674518b45200c4f919b068d5939638, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  falan: {fileID: 1656554184}
 --- !u!1001 &1744995573
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6624,6 +6610,10 @@ PrefabInstance:
       propertyPath: holeParent
       value: 
       objectReference: {fileID: 1749027270}
+    - target: {fileID: 6311555926322579482, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
+      propertyPath: m_text
+      value: Ppepe
+      objectReference: {fileID: 0}
     - target: {fileID: 7136342948117528735, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: scoreText
       value: 
@@ -6642,7 +6632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7136342948117528928, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7136342948117528928, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6753,6 +6743,10 @@ PrefabInstance:
       propertyPath: holeParent
       value: 
       objectReference: {fileID: 1749027270}
+    - target: {fileID: 6311555926322579482, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
+      propertyPath: m_text
+      value: Nomad
+      objectReference: {fileID: 0}
     - target: {fileID: 7136342948117528735, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: scoreText
       value: 
@@ -6771,7 +6765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7136342948117528928, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7136342948117528928, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8601,22 +8595,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1739894532, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
+      propertyPath: falan
+      value: 
+      objectReference: {fileID: 1656554184}
     - target: {fileID: 7136342947491753380, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
       propertyPath: holeParent
       value: 
       objectReference: {fileID: 1749027270}
     - target: {fileID: 7136342948117528733, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7136342948117528733, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
       propertyPath: floatingJoystick
       value: 
       objectReference: {fileID: 1857987774}
-    - target: {fileID: 7136342948117528735, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 1324256436}
     - target: {fileID: 7136342948117528735, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
       propertyPath: scoreTextParent
       value: 
