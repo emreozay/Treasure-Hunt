@@ -6,6 +6,13 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
+    private GameObject gameOverPanel;
+    [SerializeField]
+    private GameObject gameWinPanel;
+    [SerializeField]
+    private Transform scoreboard;
+
+    [SerializeField]
     private TextMeshProUGUI timeText;
 
     [SerializeField]
@@ -50,6 +57,8 @@ public class UIManager : MonoBehaviour
 
             if (timeLeft == 10)
                 timeBoxImage.sprite = redTimeBox;
+            else if (timeLeft == 0)
+                EndGame();
         }
     }
 
@@ -79,5 +88,39 @@ public class UIManager : MonoBehaviour
                 }
             }
         };
+    }
+
+    private void EndGame()
+    {
+        Time.timeScale = 0;
+
+        if (scoreboard.GetChild(0) == scoreParents[0])
+        {
+            GameWin();
+        }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
+    }
+
+    public void GameWin()
+    {
+        gameWinPanel.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        print("Restart the level!");
+    }
+
+    public void NextLevel()
+    {
+        print("Load next level!");
     }
 }
