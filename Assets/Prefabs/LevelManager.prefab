@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6702535009599467027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6702535009599467024}
+  - component: {fileID: 7960268977800568710}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6702535009599467024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702535009599467027}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7960268977800568710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702535009599467027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8e0b438c035e04d8e1eb780c40380b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameLevel: {fileID: 11400000, guid: 4d7b858d671249246a4528e127c0cd02, type: 2}
+  prefabList:
+  - type: 0
+    prefab: {fileID: 6659704166371846733, guid: cc0769a8d3976a241ab1df0a21e255e7, type: 3}
+    texture: {fileID: 2800000, guid: ea66fb58e6b7f164fb9c0f98a597d63d, type: 3}
+  - type: 1
+    prefab: {fileID: 6596563514993386626, guid: 77612efb91529414b99eb901eeb8bd1f, type: 3}
+    texture: {fileID: 2800000, guid: eeae8b1b096fbca48b2c8f6b149634d6, type: 3}
+  - type: 2
+    prefab: {fileID: 8542227846860450419, guid: 045899b83aaacaa45b7658dd1ba45653, type: 3}
+    texture: {fileID: 2800000, guid: 9da91fb9a51f9aa4f8feef2f83c4cb40, type: 3}
+  - type: 3
+    prefab: {fileID: 184297758717470959, guid: 34910da2bf8ee9f4788dfd0d5907ca05, type: 3}
+    texture: {fileID: 2800000, guid: a655416b42c306c4aa4b2bc71c3cfb8d, type: 3}
+  - type: 4
+    prefab: {fileID: 5075875601069388666, guid: 62384abcea9645c4cb7c588fc8ef511d, type: 3}
+    texture: {fileID: 2800000, guid: e435e963ce54c4741b6c840d88ed8526, type: 3}
+  - type: 5
+    prefab: {fileID: 3970448313193486420, guid: aa0008c2c2638d54a9a8223f20c9295f, type: 3}
+    texture: {fileID: 2800000, guid: efcf914ac94aad94ca0ced51fb51292e, type: 3}
+  - type: 6
+    prefab: {fileID: 2413691191262796398, guid: 23483205522b8c54f927294e73be5b1b, type: 3}
+    texture: {fileID: 2800000, guid: db1caae09b56bd74e82d568296d5b031, type: 3}
+  - type: 7
+    prefab: {fileID: 4853699298293081087, guid: 8be665a84a845444abbe51bc538d2191, type: 3}
+    texture: {fileID: 2800000, guid: 70be01485cfdf0342bb0c5c81d96f0d9, type: 3}
+  - type: 8
+    prefab: {fileID: 1921463331654982762, guid: 2911f8828621f8a4ca911cd8ed6eb88b, type: 3}
+    texture: {fileID: 2800000, guid: 01e65f7773b03ec4794e1a71697f2af1, type: 3}

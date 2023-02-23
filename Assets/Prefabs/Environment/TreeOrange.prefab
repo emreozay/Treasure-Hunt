@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 703009502792374807}
   - component: {fileID: 5028651512899479344}
   - component: {fileID: -8511478166308958906}
+  - component: {fileID: 1071482026679605559}
   m_Layer: 0
   m_Name: TreeOrange
   m_TagString: Obstacle
@@ -128,3 +129,16 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!114 &1071482026679605559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2413691191262796398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa903341914bd04f9b75d03b036e4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
