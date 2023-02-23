@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2037222688}
   - component: {fileID: 2037222690}
   - component: {fileID: 2037222689}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Sensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7136342946311612885}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: RightFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,9 +151,9 @@ GameObject:
   - component: {fileID: 324502176}
   - component: {fileID: 7136342948117528735}
   - component: {fileID: 324502177}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c009ad16e3be147be5a131490aecb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxMovementSpeed: 6
   target: {x: -14, y: 2, z: 0}
   newTarget: 0
   holeParent: {fileID: 0}
@@ -326,6 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pouch: {fileID: 361837709181064932}
+  enemyParent: {fileID: 0}
   scoreTextParent: {fileID: 0}
 --- !u!195 &324502177
 NavMeshAgent:
@@ -358,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7136342948228292701}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: LeftFoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5037752872600568209, guid: 71a3c5c45cb4890429bc713d020d6b24, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71a3c5c45cb4890429bc713d020d6b24, type: 3}
@@ -504,7 +506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7353502306323073159, guid: a13201a16c3822c4691a0c7401529b9f, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7353502306323073159, guid: a13201a16c3822c4691a0c7401529b9f, type: 3}
       propertyPath: m_IsActive
@@ -579,7 +581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5037752872600568209, guid: 71a3c5c45cb4890429bc713d020d6b24, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71a3c5c45cb4890429bc713d020d6b24, type: 3}
@@ -598,6 +600,10 @@ PrefabInstance:
     - target: {fileID: 4095786850329503657, guid: 86426cfc6298b1140817f5c4ad280516, type: 3}
       propertyPath: m_Name
       value: NameText
+      objectReference: {fileID: 0}
+    - target: {fileID: 4095786850329503657, guid: 86426cfc6298b1140817f5c4ad280516, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4095786850329503658, guid: 86426cfc6298b1140817f5c4ad280516, type: 3}
       propertyPath: m_Pivot.x

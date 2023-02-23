@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 1739894532}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -309,8 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2bd5080d1441e84fae02d28d07e8286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxMovementSpeed: 6
   floatingJoystick: {fileID: 0}
-  movementSpeed: 5
 --- !u!114 &7136342948117528735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pouch: {fileID: 361837709181064932}
+  enemyParent: {fileID: 0}
   scoreTextParent: {fileID: 0}
 --- !u!114 &1739894532
 MonoBehaviour:

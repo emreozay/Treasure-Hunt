@@ -9,6 +9,9 @@ public class CollisionController : MonoBehaviour
     private GameObject pouch;
 
     [SerializeField]
+    private Transform enemyParent;
+
+    [SerializeField]
     private Transform scoreTextParent; // Change this later!!!
 
     private Animator animator;
@@ -30,14 +33,13 @@ public class CollisionController : MonoBehaviour
         }
         if (collision.CompareTag("Boost"))
         {
-            Destroy(collision.gameObject);
-
-            movement.MaxMovementSpeed *= 1.2f;
-            movement.MovementSpeed = movement.MaxMovementSpeed;
+            collision.gameObject.SetActive(false);
+            StartCoroutine(SpeedBoost());
         }
         if (collision.CompareTag("Freeze"))
         {
-            //StartCoroutine(Dig(collision.transform));
+            collision.gameObject.SetActive(false);
+            StartCoroutine(Freeze());
         }
     }
 
@@ -63,6 +65,34 @@ public class CollisionController : MonoBehaviour
 
         movement.ContinueMoving();
 
-        TreasureCreator.Instance.CreateNewTreasure();
+        CollectableCreator.Instance.CreateNewTreasure();
+    }
+
+    private IEnumerator SpeedBoost()
+    {
+        movement.MaxMovementSpeed *= 1.2f;
+        movement.MovementSpeed = movement.MaxMovementSpeed;
+
+        yield return new WaitForSeconds(5f);
+
+        movement.MaxMovementSpeed /= 1.2f;
+        movement.MovementSpeed = movement.MaxMovementSpeed;
+    }
+
+    private IEnumerator Freeze()
+    {
+        EnemyMovement[] enemyMovements = enemyParent.GetComponentsInChildren<EnemyMovement>();
+
+        for (int i = 0; i < enemyMovements.Length; i++)
+        {
+            enemyMovements[i].FreezeCharacter();
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        for (int i = 0; i < enemyMovements.Length; i++)
+        {
+            enemyMovements[i].UnfreezeCharacter();
+        }
     }
 }

@@ -123,6 +123,20 @@ public class EnemyMovement : Movement
         }
     }
 
+    public void FreezeCharacter()
+    {
+        animator.SetBool("isRunning", false);
+        isMoving = false;
+        agent.velocity = Vector2.zero;
+        agent.isStopped = true;
+    }
+
+    public void UnfreezeCharacter()
+    {
+        isMoving = true;
+        agent.isStopped = false;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = newColor;
