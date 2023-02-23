@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hole
   - DugHole
+  - Obstacle
   layers:
   - Default
   - TransparentFX

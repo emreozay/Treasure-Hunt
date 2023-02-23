@@ -51,5 +51,7 @@ public class CollisionController : MonoBehaviour
         UIManager.Instance.SetScoreText(scoreTextParent, score);
 
         movement.ContinueMoving();
+
+        TreasureCreator.Instance.CreateNewTreasure();
     }
 }

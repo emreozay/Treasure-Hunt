@@ -2169,7 +2169,7 @@ RectTransform:
   - {fileID: 370352449}
   - {fileID: 1875411713}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5418,7 +5418,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1419967651 stripped
 Transform:
@@ -7793,6 +7793,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8386119195758990868, guid: 77612efb91529414b99eb901eeb8bd1f, type: 3}
   m_PrefabInstance: {fileID: 1990203190}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1990917325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1990917327}
+  - component: {fileID: 1990917326}
+  m_Layer: 0
+  m_Name: Treasure Creator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1990917326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990917325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a236018754ea34db0df0b91e3805c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holeParent: {fileID: 1749027270}
+  holePrefab: {fileID: 7342364842466097722, guid: 2a1db4c5980c8a34db99830a84db5627, type: 3}
+--- !u!4 &1990917327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990917325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.146071, y: 0.109899305, z: -0.04970464}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2014311093
 PrefabInstance:
   m_ObjectHideFlags: 0
