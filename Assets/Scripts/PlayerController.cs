@@ -6,12 +6,10 @@ public class PlayerController : Movement
 {
     [SerializeField]
     private FloatingJoystick floatingJoystick;
-    [SerializeField]
-    private float movementSpeed;
 
     private Rigidbody2D playerRigidbody;
 
-    public override float MovementSpeed { get => movementSpeed; set => movementSpeed = value; }
+    public override float MovementSpeed { get; set; }
 
     private void Awake()
     {
@@ -22,6 +20,8 @@ public class PlayerController : Movement
     private void Start()
     {
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
+
+        MovementSpeed = MaxMovementSpeed;
     }
 
     private void FixedUpdate()
@@ -35,7 +35,7 @@ public class PlayerController : Movement
         if (!isMoving)
             return;
 
-        playerRigidbody.velocity = new Vector2(floatingJoystick.Horizontal, floatingJoystick.Vertical).normalized * movementSpeed;
+        playerRigidbody.velocity = new Vector2(floatingJoystick.Horizontal, floatingJoystick.Vertical).normalized * MovementSpeed;
     }
 
     protected override void Animate()

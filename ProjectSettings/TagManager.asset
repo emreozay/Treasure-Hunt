@@ -7,6 +7,8 @@ TagManager:
   - Hole
   - DugHole
   - Obstacle
+  - Boost
+  - Freeze
   layers:
   - Default
   - TransparentFX

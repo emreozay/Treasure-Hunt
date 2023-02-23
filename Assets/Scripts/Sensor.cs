@@ -47,23 +47,23 @@ public class Sensor : MonoBehaviour
             if (minDistance < 4f)
             {
                 spriteRenderer.sprite = sensorHalos[2];
-                movement.MovementSpeed = 2;
+                movement.MovementSpeed = movement.MaxMovementSpeed / 2.5f;
             }
             else if (minDistance < 7f)
             {
                 spriteRenderer.sprite = sensorHalos[1];
-                movement.MovementSpeed = 3;
+                movement.MovementSpeed = movement.MaxMovementSpeed / 1.5f;
             }
             else
             {
                 spriteRenderer.sprite = sensorHalos[0];
-                movement.MovementSpeed = 4;
+                movement.MovementSpeed = movement.MaxMovementSpeed / 1.25f;
             }
         }
         else
         {
             spriteRenderer.enabled = false;
-            movement.MovementSpeed = 5;
+            movement.MovementSpeed = movement.MaxMovementSpeed;
         }
     }
 }

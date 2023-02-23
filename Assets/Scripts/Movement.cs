@@ -3,6 +3,7 @@ using UnityEngine;
 public abstract class Movement : MonoBehaviour
 {
     public abstract float MovementSpeed { get; set; }
+    public float MaxMovementSpeed = 5f;
 
     protected Animator animator;
 

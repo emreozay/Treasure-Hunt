@@ -28,6 +28,17 @@ public class CollisionController : MonoBehaviour
         {
             StartCoroutine(Dig(collision.transform));
         }
+        if (collision.CompareTag("Boost"))
+        {
+            Destroy(collision.gameObject);
+
+            movement.MaxMovementSpeed *= 1.2f;
+            movement.MovementSpeed = movement.MaxMovementSpeed;
+        }
+        if (collision.CompareTag("Freeze"))
+        {
+            //StartCoroutine(Dig(collision.transform));
+        }
     }
 
     private IEnumerator Dig(Transform newHole)

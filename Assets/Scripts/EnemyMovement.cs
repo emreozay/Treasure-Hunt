@@ -21,6 +21,7 @@ public class EnemyMovement : Movement
     private Vector3 newDestination;
     private Vector3 currentDestination;
     private Vector3 randomDestination;
+
     public override float MovementSpeed { get => agent.speed; set => SetNewDestination(value); }
 
     private void Awake()
@@ -34,7 +35,7 @@ public class EnemyMovement : Movement
 
     private void Start()
     {
-        agent.speed = MovementSpeed;
+        agent.speed = MaxMovementSpeed;
 
         SetRandomDestination();
     }
