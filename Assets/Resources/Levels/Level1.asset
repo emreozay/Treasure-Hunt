@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017304ad6ad46ed4ba6ef1edb6d01804, type: 3}
+  m_Name: Level1
+  m_EditorClassIdentifier: 
+  levelObjectList:
+  - type: 11
+    position: {x: 3.4614816, y: 8.743362, z: 0}
+  - type: 11
+    position: {x: -9.93767, y: 18.420532, z: 0}
+  - type: 11
+    position: {x: 12.470659, y: 7.7648826, z: 0}
+  - type: 11
+    position: {x: -11.9349575, y: 0.7263832, z: 0}
+  - type: 9
+    position: {x: -1.8956547, y: -19.31614, z: 0}
+  - type: 10
+    position: {x: 14.44573, y: 10.878482, z: 0}
+  - type: 11
+    position: {x: 8.125387, y: 10.520153, z: 0}
+  - type: 11
+    position: {x: -1.5528431, y: -10.3252945, z: 0}
+  - type: 2
+    position: {x: 0.947834, y: -12.863163, z: 0}
+  - type: 2
+    position: {x: -9.852955, y: 8.200588, z: 0}
+  - type: 2
+    position: {x: -6.915262, y: -3.002674, z: 0}
+  - type: 6
+    position: {x: 9.824707, y: -17.207214, z: 0}
+  - type: 5
+    position: {x: -3.7057953, y: 19.427582, z: 0}
+  - type: 4
+    position: {x: -9.75539, y: -13.063187, z: 0}
+  - type: 7
+    position: {x: 12.17794, y: 10.907969, z: 0}
+  - type: 5
+    position: {x: -9.598482, y: -16.275642, z: 0}
+  - type: 6
+    position: {x: -0.12021828, y: 9.142547, z: 0}
+  - type: 7
+    position: {x: 7.421794, y: 3.88418, z: 0}
+  mapSizeMultiplier: {x: 1.683, y: 1.211}

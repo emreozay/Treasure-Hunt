@@ -13,10 +13,20 @@ MonoBehaviour:
   m_Name: Level3
   m_EditorClassIdentifier: 
   levelObjectList:
+  - type: 11
+    position: {x: 14.292015, y: 18.137856, z: 0}
+  - type: 11
+    position: {x: 2.2963772, y: -10.133728, z: 0}
+  - type: 11
+    position: {x: 0.52791405, y: -6.576521, z: 0}
+  - type: 11
+    position: {x: -5.714384, y: -14.693455, z: 0}
+  - type: 11
+    position: {x: 6.4498687, y: -13.004414, z: 0}
   - type: 2
-    position: {x: -6.915262, y: -3.002674, z: 0}
+    position: {x: 0.947834, y: -12.863163, z: 0}
   - type: 2
     position: {x: -9.852955, y: 8.200588, z: 0}
   - type: 2
-    position: {x: 0.947834, y: -12.863163, z: 0}
+    position: {x: -6.915262, y: -3.002674, z: 0}
   mapSizeMultiplier: {x: 1, y: 1.1}

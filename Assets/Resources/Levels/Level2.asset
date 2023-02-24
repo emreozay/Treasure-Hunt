@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017304ad6ad46ed4ba6ef1edb6d01804, type: 3}
+  m_Name: Level2
+  m_EditorClassIdentifier: 
+  levelObjectList:
+  - type: 11
+    position: {x: 7.360775, y: 12.060981, z: 0}
+  - type: 11
+    position: {x: -5.178049, y: 1.0412235, z: 0}
+  - type: 11
+    position: {x: 1.6921325, y: 1.6384773, z: 0}
+  - type: 11
+    position: {x: -9.777338, y: 11.275554, z: 0}
+  - type: 11
+    position: {x: 12.069601, y: 11.870712, z: 0}
+  - type: 11
+    position: {x: -0.93938637, y: -9.45944, z: 0}
+  - type: 4
+    position: {x: -6.278299, y: -12.11208, z: 0}
+  - type: 1
+    position: {x: 3.3240852, y: 0.24151611, z: 0}
+  - type: 9
+    position: {x: 9.046944, y: 4.0836124, z: 0}
+  - type: 10
+    position: {x: -4.132481, y: 11.29805, z: 0}
+  mapSizeMultiplier: {x: 1, y: 1}

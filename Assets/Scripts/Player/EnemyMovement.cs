@@ -24,17 +24,18 @@ public class EnemyMovement : Movement
 
     public override float MovementSpeed { get => agent.speed; set => SetNewDestination(value); }
 
-    private void Awake()
+    protected override void Awake()
     {
-        animator = GetComponent<Animator>();
+        base.Awake();
 
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         agent.speed = MaxMovementSpeed;
 
         SetRandomDestination();

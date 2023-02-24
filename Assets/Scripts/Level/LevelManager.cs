@@ -1,6 +1,8 @@
-using System.Collections;
+using NavMeshPlus.Components;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class LevelManager : MonoBehaviour
 {
@@ -15,6 +17,11 @@ public class LevelManager : MonoBehaviour
     private GameObject holeParent;
     private GameObject boostParent;
 
+    private GameLevel[] gameLevels;
+
+    [SerializeField]
+    private NavMeshSurface navMeshSurface;
+
     [SerializeField]
     private List<SaveLevelPrefab> prefabList = new List<SaveLevelPrefab>();
 
@@ -23,15 +30,35 @@ public class LevelManager : MonoBehaviour
 
     private Vector2 mapSizeMultiplier = Vector2.one;
 
+    //public Action NextLevelAction;
+
     private bool newLevel = false;
+    private int level = 1;
+
+    public static LevelManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     private void Start()
     {
+        gameLevels = Resources.LoadAll<GameLevel>("Levels");
+        level = PlayerPrefs.GetInt("Level", 1);
+
         environmentParent = GameObject.Find("Environment");
         holeParent = GameObject.Find("Holes");
         boostParent = GameObject.Find("Boosts");
 
-        LoadCurrentLevel();
+        LoadCurrentLevel(false);
     }
 
     public void SaveLevel()
@@ -94,8 +121,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public void LoadCurrentLevel()
+    public void LoadCurrentLevel(bool isEditor)
     {
+        if (!isEditor)
+            gameLevel = gameLevels[level - 1];
+
         if (gameLevel == null)
         {
             Debug.LogError("No Game Level Object!");
@@ -111,7 +141,6 @@ public class LevelManager : MonoBehaviour
             GameObject prefab = null;
             foreach (SaveLevelPrefab levelPrefab in prefabList)
             {
-                //Debug.Log(levelObject.type + " - " + levelPrefab.type);
                 if (levelObject.type == levelPrefab.type)
                 {
                     prefab = levelPrefab.prefab;
@@ -131,12 +160,14 @@ public class LevelManager : MonoBehaviour
 
             newInstance.transform.position = levelObject.position;
         }
+
+        navMeshSurface?.BuildNavMesh();
     }
 
     public void LoadLevel(GameLevel level)
     {
         this.gameLevel = level;
-        LoadCurrentLevel(); //bak buna
+        LoadCurrentLevel(false); //bak buna
     }
 
     public Texture GetPrefabTexture(int textureIndex)
@@ -182,7 +213,7 @@ public class LevelManager : MonoBehaviour
         mapSizeMultiplier = gameLevel.mapSizeMultiplier;
         mapSpriteRenderer = Instantiate(mapPrefab).GetComponent<SpriteRenderer>();
         mapSpriteRenderer.size *= mapSizeMultiplier;
-
+        //mapSpriteRenderer.transform.localScale = mapSizeMultiplier;
         boundaries = Instantiate(mapBoundaries);
         boundaries.transform.localScale = mapSizeMultiplier;
     }
@@ -226,6 +257,12 @@ public class LevelManager : MonoBehaviour
         return mapSizeMultiplier;
     }
 
+    public void NextLevel()
+    {
+        if (gameLevels.Length > level)
+            level++;
+    }
+
     private void SetParent(Transform newObject, int index)
     {
         if (environmentParent == null)
@@ -241,5 +278,10 @@ public class LevelManager : MonoBehaviour
             newObject.SetParent(boostParent.transform);
         else if (index == 11)
             newObject.SetParent(holeParent.transform);
+    }
+
+    private void OnDestroy()
+    {
+        PlayerPrefs.SetInt("Level", level);
     }
 }

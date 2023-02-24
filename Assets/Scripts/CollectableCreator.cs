@@ -29,7 +29,7 @@ public class CollectableCreator : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SpawnBoosts());
+        //StartCoroutine(SpawnBoosts());
     }
 
     public void CreateNewTreasure()

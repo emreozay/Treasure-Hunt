@@ -24,6 +24,10 @@ public class Sensor : MonoBehaviour
     private void FindHoleDistance()
     {
         Transform closestHole = holeParent.GetChild(0);
+
+        if (closestHole == null)
+            return;
+
         float minDistance = 100f;
 
         foreach (Transform hole in holeParent)

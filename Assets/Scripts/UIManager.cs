@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -111,16 +112,23 @@ public class UIManager : MonoBehaviour
 
     public void GameWin()
     {
+        LevelManager.Instance.NextLevel();
         gameWinPanel.SetActive(true);
     }
 
     public void Restart()
     {
+        LevelManager.Instance.LoadCurrentLevel(false);
         print("Restart the level!");
     }
 
     public void NextLevel()
     {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //LevelManager.Instance.NextLevelAction?.Invoke();
+        //LevelManager.Instance.LoadCurrentLevel();
+        //gameWinPanel.SetActive(false);
+
         print("Load next level!");
     }
 }

@@ -11,7 +11,6 @@ public class LevelManagerEditor : Editor
 
     private void OnEnable()
     {
-        //levelManager = FindObjectOfType<LevelManager>();
         levelManager = (LevelManager)target;
         mapSizeMultiplier = levelManager.GetMapSize();
     }
@@ -29,17 +28,25 @@ public class LevelManagerEditor : Editor
 
         GUILayout.Space(10);
 
+        GUILayout.BeginVertical();
         GUILayout.BeginHorizontal();
         for (int i = 0; i < levelManager.PrefabLength(); i++)
         {
-            if (GUILayout.Button(levelManager.GetPrefabTexture(i), GUILayout.Width(40), GUILayout.Height(40)))
+            if(i == 6)
+            {
+                GUILayout.EndHorizontal();
+                GUILayout.BeginHorizontal();
+            }
+            if (GUILayout.Button(levelManager.GetPrefabTexture(i), GUILayout.Width(50), GUILayout.Height(50)))
             {
                 levelManager.CreateObject(i);
             }
         }
         GUILayout.EndHorizontal();
+        GUILayout.EndVertical();
 
         GUILayout.Space(10);
+
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Save Level"))
         {
@@ -50,7 +57,7 @@ public class LevelManagerEditor : Editor
         if (GUILayout.Button("Load Level"))
         {
             Debug.Log("Loaded!");
-            levelManager.LoadCurrentLevel();
+            levelManager.LoadCurrentLevel(true);
         }
         GUILayout.EndHorizontal();
     }

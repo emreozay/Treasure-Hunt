@@ -11,14 +11,16 @@ public class PlayerController : Movement
 
     public override float MovementSpeed { get; set; }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         playerRigidbody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
 
         MovementSpeed = MaxMovementSpeed;
