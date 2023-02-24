@@ -14,10 +14,11 @@ GameObject:
   - component: {fileID: -3087567234269581990}
   - component: {fileID: 24268651057230154}
   - component: {fileID: -520655080635141738}
+  - component: {fileID: -222379178594556917}
   m_Layer: 0
   m_Name: Hole
   m_TagString: Hole
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2800000, guid: 81a2def7e556b554aacba6f72bb8e060, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -167,3 +168,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c143681d15aff04488ffe0b283626cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-222379178594556917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342364842466097722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa903341914bd04f9b75d03b036e4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 11

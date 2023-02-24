@@ -13,11 +13,41 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   levelObjectList:
+  - type: 8
+    position: {x: -13.07, y: 8.27, z: 0}
+  - type: 7
+    position: {x: -3.9917297, y: 6.3792415, z: 0}
+  - type: 6
+    position: {x: 10.756073, y: -11.852179, z: 0}
   - type: 5
-    position: {x: -2.21, y: 6.11, z: 0}
+    position: {x: -13.144133, y: -4.880331, z: 0}
   - type: 3
-    position: {x: 0, y: 0, z: 0}
-  - type: 1
-    position: {x: -15.64, y: -20.85, z: 0}
+    position: {x: 5.8579764, y: -14.511265, z: 0}
+  - type: 3
+    position: {x: -11.612019, y: -2.6346378, z: 0}
+  - type: 10
+    position: {x: 5.7485533, y: 7.413234, z: 0}
+  - type: 9
+    position: {x: -7.4026375, y: -11.216484, z: 0}
+  - type: 6
+    position: {x: 6.760579, y: 12.413359, z: 0}
   - type: 5
-    position: {x: 0, y: 3, z: 0}
+    position: {x: -6.3767753, y: -2.453268, z: 0}
+  - type: 8
+    position: {x: 4.4382114, y: 19.781075, z: 0}
+  - type: 7
+    position: {x: 8.259909, y: 3.5430603, z: 0}
+  - type: 2
+    position: {x: 4.1504283, y: -1.8138618, z: 0}
+  - type: 4
+    position: {x: 7.2070346, y: -6.116436, z: 0}
+  - type: 11
+    position: {x: -11.31, y: 16.09, z: 0}
+  - type: 11
+    position: {x: 14.497122, y: -6.029728, z: 0}
+  - type: 11
+    position: {x: 9.83, y: 14.11, z: 0}
+  - type: 11
+    position: {x: -12.414562, y: -11.66534, z: 0}
+  - type: 11
+    position: {x: 4.48, y: -18.4, z: 0}

@@ -73,3 +73,12 @@ MonoBehaviour:
   - type: 8
     prefab: {fileID: 1921463331654982762, guid: 2911f8828621f8a4ca911cd8ed6eb88b, type: 3}
     texture: {fileID: 2800000, guid: 01e65f7773b03ec4794e1a71697f2af1, type: 3}
+  - type: 9
+    prefab: {fileID: 5098716412324895399, guid: f0bd519f9c783fe479fc3cb6fa0131aa, type: 3}
+    texture: {fileID: 2800000, guid: 29532463073456a418170fa0637f506e, type: 3}
+  - type: 10
+    prefab: {fileID: 7787586715127205189, guid: eab1065a736586347bb7ad00899b28ba, type: 3}
+    texture: {fileID: 2800000, guid: d612ea0ecc79f594cb0bfb3c6db377f9, type: 3}
+  - type: 11
+    prefab: {fileID: 7342364842466097722, guid: 2a1db4c5980c8a34db99830a84db5627, type: 3}
+    texture: {fileID: 2800000, guid: 013ef2017b9211f4289c48387643331d, type: 3}
