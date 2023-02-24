@@ -16,6 +16,9 @@ public enum LevelObjectType
     TreeOrange,
     TreeRed,
     TreeYellow,
+    MegaBoots,
+    FrostArrow,
+    Hole
 }
 
 //Bunu baþka yere koyman gerekebilir

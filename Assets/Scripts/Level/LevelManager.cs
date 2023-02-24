@@ -7,14 +7,25 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private GameLevel gameLevel;
 
+    private GameObject environmentParent;
+    private GameObject holeParent;
+    private GameObject boostParent;
+
     [SerializeField]
     private List<SaveLevelPrefab> prefabList = new List<SaveLevelPrefab>();
+
+    private void Start()
+    {
+        environmentParent = GameObject.Find("Environment");
+        holeParent = GameObject.Find("Holes");
+        boostParent = GameObject.Find("Boosts");
+    }
 
     private void UpdatePrefabList()
     {
 
     }
-    
+
     public void SaveLevel()
     {
         if (gameLevel == null)
@@ -124,7 +135,22 @@ public class LevelManager : MonoBehaviour
 
     public void CreateObject(int objectIndex)
     {
-        Instantiate(prefabList[objectIndex].prefab);
+        if (environmentParent == null)
+            environmentParent = GameObject.Find("Environment");
+        if (holeParent == null)
+            holeParent = GameObject.Find("Holes");
+        if (boostParent == null)
+            boostParent = GameObject.Find("Boosts");
+
+        Vector3 newPosition = transform.position = new Vector3(Random.Range(-15f, 15f), Random.Range(-20f, 20f), 0);
+        GameObject newObject = Instantiate(prefabList[objectIndex].prefab, newPosition, Quaternion.identity);
+
+        if (objectIndex < 9)
+            newObject.transform.SetParent(environmentParent.transform);
+        else if (objectIndex < 11)
+            newObject.transform.SetParent(boostParent.transform);
+        else if (objectIndex == 11)
+            newObject.transform.SetParent(holeParent.transform);
     }
 
     private void ClearLevel()
