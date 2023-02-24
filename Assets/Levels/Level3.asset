@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelObjectList:
   - type: 2
-    position: {x: 0.947834, y: -12.863163, z: 0}
+    position: {x: -6.915262, y: -3.002674, z: 0}
   - type: 2
     position: {x: -9.852955, y: 8.200588, z: 0}
   - type: 2
-    position: {x: -6.915262, y: -3.002674, z: 0}
-  mapSizeMultiplier: {x: 1.52, y: 1.1}
+    position: {x: 0.947834, y: -12.863163, z: 0}
+  mapSizeMultiplier: {x: 1, y: 1.1}

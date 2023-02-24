@@ -34,11 +34,6 @@ public class LevelManager : MonoBehaviour
         LoadCurrentLevel();
     }
 
-    private void UpdatePrefabList()
-    {
-
-    }
-
     public void SaveLevel()
     {
         if (gameLevel == null)
@@ -108,7 +103,6 @@ public class LevelManager : MonoBehaviour
         }
 
         ClearLevel();
-
         newLevel = true;
         LoadMap();
 
@@ -132,6 +126,8 @@ public class LevelManager : MonoBehaviour
             }
 
             GameObject newInstance = Instantiate(prefab); //You can use object pooling for this
+            int levelObjectTypeIndex = (int)levelObject.type;
+            SetParent(newInstance.transform, levelObjectTypeIndex);
 
             newInstance.transform.position = levelObject.position;
         }
@@ -155,22 +151,10 @@ public class LevelManager : MonoBehaviour
 
     public void CreateObject(int objectIndex)
     {
-        if (environmentParent == null)
-            environmentParent = GameObject.Find("Environment");
-        if (holeParent == null)
-            holeParent = GameObject.Find("Holes");
-        if (boostParent == null)
-            boostParent = GameObject.Find("Boosts");
-
         Vector3 newPosition = transform.position = new Vector3(Random.Range(-15f, 15f), Random.Range(-20f, 20f), 0);
         GameObject newObject = Instantiate(prefabList[objectIndex].prefab, newPosition, Quaternion.identity);
 
-        if (objectIndex < 9)
-            newObject.transform.SetParent(environmentParent.transform);
-        else if (objectIndex < 11)
-            newObject.transform.SetParent(boostParent.transform);
-        else if (objectIndex == 11)
-            newObject.transform.SetParent(holeParent.transform);
+        SetParent(newObject.transform, objectIndex);
     }
 
     public Vector2 SetMapSize(Vector2 sizeMultiplier)
@@ -235,5 +219,27 @@ public class LevelManager : MonoBehaviour
             else
                 Destroy(boundaryObjects[i]);
         }
+    }
+
+    public Vector2 GetMapSize()
+    {
+        return mapSizeMultiplier;
+    }
+
+    private void SetParent(Transform newObject, int index)
+    {
+        if (environmentParent == null)
+            environmentParent = GameObject.Find("Environment");
+        if (holeParent == null)
+            holeParent = GameObject.Find("Holes");
+        if (boostParent == null)
+            boostParent = GameObject.Find("Boosts");
+
+        if (index < 9)
+            newObject.SetParent(environmentParent.transform);
+        else if (index < 11)
+            newObject.SetParent(boostParent.transform);
+        else if (index == 11)
+            newObject.SetParent(holeParent.transform);
     }
 }

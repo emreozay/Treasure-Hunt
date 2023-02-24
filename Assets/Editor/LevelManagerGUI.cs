@@ -12,6 +12,8 @@ public class LevelManagerGUI : Editor
     private void OnEnable()
     {
         levelManager = FindObjectOfType<LevelManager>();
+
+        mapSizeMultiplier = levelManager.GetMapSize();
     }
 
     public override void OnInspectorGUI()
