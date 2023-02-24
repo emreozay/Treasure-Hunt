@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5191569127105410405}
   m_Layer: 0
   m_Name: GroundTreasureHunt
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 40
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 32.4, y: 45.00183}
+  m_DrawMode: 2
+  m_Size: {x: 35, y: 45}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

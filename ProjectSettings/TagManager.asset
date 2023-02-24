@@ -9,6 +9,8 @@ TagManager:
   - Obstacle
   - Boost
   - Freeze
+  - Map
+  - Boundary
   layers:
   - Default
   - TransparentFX

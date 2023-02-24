@@ -6,6 +6,10 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField]
     private GameLevel gameLevel;
+    [SerializeField]
+    private GameObject mapPrefab;
+    [SerializeField]
+    private GameObject mapBoundaries;
 
     private GameObject environmentParent;
     private GameObject holeParent;
@@ -14,11 +18,20 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private List<SaveLevelPrefab> prefabList = new List<SaveLevelPrefab>();
 
+    private SpriteRenderer mapSpriteRenderer;
+    private GameObject boundaries;
+
+    private Vector2 mapSizeMultiplier = Vector2.one;
+
+    private bool newLevel = false;
+
     private void Start()
     {
         environmentParent = GameObject.Find("Environment");
         holeParent = GameObject.Find("Holes");
         boostParent = GameObject.Find("Boosts");
+
+        LoadCurrentLevel();
     }
 
     private void UpdatePrefabList()
@@ -42,6 +55,8 @@ public class LevelManager : MonoBehaviour
             gameLevel.AddLevelObjectInfo(levelObject);
         }
 
+        gameLevel.mapSizeMultiplier = mapSizeMultiplier;
+
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(gameLevel);
 #endif
@@ -56,6 +71,9 @@ public class LevelManager : MonoBehaviour
         }
 
         ClearLevel();
+
+        newLevel = true;
+        LoadMap();
 
         foreach (LevelObjectInfo levelObject in level.levelObjectList)
         {
@@ -90,7 +108,9 @@ public class LevelManager : MonoBehaviour
         }
 
         ClearLevel();
-        Debug.Log("Length: " + prefabList.Count);
+
+        newLevel = true;
+        LoadMap();
 
         foreach (LevelObjectInfo levelObject in gameLevel.levelObjectList)
         {
@@ -153,7 +173,37 @@ public class LevelManager : MonoBehaviour
             newObject.transform.SetParent(holeParent.transform);
     }
 
-    private void ClearLevel()
+    public Vector2 SetMapSize(Vector2 sizeMultiplier)
+    {
+        if (newLevel)
+        {
+            newLevel = false;
+            return mapSizeMultiplier;
+        }
+
+        mapSizeMultiplier = sizeMultiplier;
+        Vector2 mapDefaultSize = new Vector2(35f, 45f);
+
+        if (mapSpriteRenderer != null)
+            mapSpriteRenderer.size = mapDefaultSize * sizeMultiplier;
+
+        if (boundaries != null)
+            boundaries.transform.localScale = sizeMultiplier;
+
+        return mapSizeMultiplier;
+    }
+
+    public void LoadMap()
+    {
+        mapSizeMultiplier = gameLevel.mapSizeMultiplier;
+        mapSpriteRenderer = Instantiate(mapPrefab).GetComponent<SpriteRenderer>();
+        mapSpriteRenderer.size *= mapSizeMultiplier;
+
+        boundaries = Instantiate(mapBoundaries);
+        boundaries.transform.localScale = mapSizeMultiplier;
+    }
+
+    public void ClearLevel()
     {
         SaveLevelObject[] levelObjects = FindObjectsOfType<SaveLevelObject>();
         foreach (SaveLevelObject levelObject in levelObjects)
@@ -165,6 +215,25 @@ public class LevelManager : MonoBehaviour
                 DestroyImmediate(levelObject.gameObject);
             else
                 Destroy(levelObject.gameObject);
+        }
+
+        GameObject[] mapObjects = GameObject.FindGameObjectsWithTag("Map");
+        GameObject[] boundaryObjects = GameObject.FindGameObjectsWithTag("Boundary");
+
+        for (int i = 0; i < mapObjects.Length; i++)
+        {
+            if (Application.isEditor)
+                DestroyImmediate(mapObjects[i]);
+            else
+                Destroy(mapObjects[i]);
+        }
+
+        for (int i = 0; i < boundaryObjects.Length; i++)
+        {
+            if (Application.isEditor)
+                DestroyImmediate(boundaryObjects[i]);
+            else
+                Destroy(boundaryObjects[i]);
         }
     }
 }

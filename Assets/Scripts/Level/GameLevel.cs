@@ -4,8 +4,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewGameLevel", menuName = "New Game Level")]
 public class GameLevel : ScriptableObject
 {
-    [SerializeField]
     public List<LevelObjectInfo> levelObjectList = new List<LevelObjectInfo>();
+    public Vector2 mapSizeMultiplier = Vector2.one;
 
     public void ClearLevelObjectList()
     {

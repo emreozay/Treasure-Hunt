@@ -3,7 +3,10 @@ guid: 4b8e0b438c035e04d8e1eb780c40380b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gameLevel: {instanceID: 0}
+  - mapPrefab: {fileID: 5191569127105410408, guid: fad6338007807f2428f3d5c00abc3af5, type: 3}
+  - mapBoundaries: {fileID: 4701790168176827286, guid: c0e2b0c9be11aa54c997f789084c9a36, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

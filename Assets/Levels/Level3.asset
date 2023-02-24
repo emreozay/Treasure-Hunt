@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 017304ad6ad46ed4ba6ef1edb6d01804, type: 3}
-  m_Name: Level2
+  m_Name: Level3
   m_EditorClassIdentifier: 
   levelObjectList:
-  - type: 10
-    position: {x: -4.132481, y: 11.29805, z: 0}
-  - type: 9
-    position: {x: 9.046944, y: 4.0836124, z: 0}
-  - type: 1
-    position: {x: 3.3240852, y: 0.24151611, z: 0}
-  - type: 4
-    position: {x: -6.278299, y: -12.11208, z: 0}
-  mapSizeMultiplier: {x: 1, y: 1}
+  - type: 2
+    position: {x: 0.947834, y: -12.863163, z: 0}
+  - type: 2
+    position: {x: -9.852955, y: 8.200588, z: 0}
+  - type: 2
+    position: {x: -6.915262, y: -3.002674, z: 0}
+  mapSizeMultiplier: {x: 1.52, y: 1.1}

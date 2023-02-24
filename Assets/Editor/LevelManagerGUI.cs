@@ -5,11 +5,25 @@ using UnityEditor;
 [CustomEditor(typeof(LevelManager))]
 public class LevelManagerGUI : Editor
 {
+    private LevelManager levelManager;
+
+    private Vector2 mapSizeMultiplier = Vector2.one;
+
+    private void OnEnable()
+    {
+        levelManager = FindObjectOfType<LevelManager>();
+    }
+
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
 
-        LevelManager levelManager = FindObjectOfType<LevelManager>();
+        GUILayout.Space(10);
+
+        mapSizeMultiplier.x = EditorGUILayout.Slider("Map width size multiplier", mapSizeMultiplier.x, 1f, 2.5f);
+        mapSizeMultiplier.y = EditorGUILayout.Slider("Map height size multiplier", mapSizeMultiplier.y, 1f, 2.5f);
+
+        mapSizeMultiplier = levelManager.SetMapSize(mapSizeMultiplier);
 
         GUILayout.Space(10);
 
