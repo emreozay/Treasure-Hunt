@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(LevelManager))]
-public class LevelManagerGUI : Editor
+public class LevelManagerEditor : Editor
 {
     private LevelManager levelManager;
 
@@ -11,8 +11,8 @@ public class LevelManagerGUI : Editor
 
     private void OnEnable()
     {
-        levelManager = FindObjectOfType<LevelManager>();
-
+        //levelManager = FindObjectOfType<LevelManager>();
+        levelManager = (LevelManager)target;
         mapSizeMultiplier = levelManager.GetMapSize();
     }
 
