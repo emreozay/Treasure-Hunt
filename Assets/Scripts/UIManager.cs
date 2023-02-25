@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
     public static Action CountdownStartAction;
     public static Action CountdownFinishAction;
 
-    private int timeLeft = 60;
+    private int timeLeft = 40;
 
     public static UIManager Instance { get; private set; }
 

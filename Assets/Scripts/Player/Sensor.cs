@@ -49,11 +49,11 @@ public class Sensor : MonoBehaviour
             }
         }
 
-        if (minDistance < 10f)
+        if (minDistance < 6f)
         {
             spriteRenderer.enabled = true;
 
-            if (minDistance < 3.5f)
+            if (minDistance < 3f)
             {
                 if (isPlayer)
                     Handheld.Vibrate();
@@ -61,10 +61,10 @@ public class Sensor : MonoBehaviour
                 spriteRenderer.sprite = sensorHalos[2];
                 movement.MovementSpeed = movement.MaxMovementSpeed / 2.5f;
             }
-            else if (minDistance < 7f)
+            else if (minDistance < 4.5f)
             {
                 spriteRenderer.sprite = sensorHalos[1];
-                movement.MovementSpeed = movement.MaxMovementSpeed / 1.5f;
+                movement.MovementSpeed = movement.MaxMovementSpeed / 1.75f;
             }
             else
             {

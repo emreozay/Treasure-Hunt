@@ -380,30 +380,6 @@ PrefabInstance:
       propertyPath: holeParent
       value: 
       objectReference: {fileID: 1749027270}
-    - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
-      propertyPath: newColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
-      propertyPath: newColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
-      propertyPath: newColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
-      propertyPath: newColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
-      propertyPath: newColor.rgba
-      value: 4278190335
-      objectReference: {fileID: 0}
-    - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
-      propertyPath: MaxMovementSpeed
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 2037222689, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: holeParent
       value: 
@@ -3382,7 +3358,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: MaxMovementSpeed
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2037222689, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: holeParent
@@ -3518,7 +3494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: MaxMovementSpeed
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2037222689, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: holeParent
@@ -3871,7 +3847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 60
+  m_text: 40
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc552ea2b63551e4fa2f9a64d37b15af, type: 2}
   m_sharedMaterial: {fileID: -3333756644904616077, guid: cc552ea2b63551e4fa2f9a64d37b15af, type: 2}
@@ -4437,8 +4413,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holeParent: {fileID: 1749027270}
   holePrefab: {fileID: 7342364842466097722, guid: 2a1db4c5980c8a34db99830a84db5627, type: 3}
-  boostObject: {fileID: 0}
-  freezeObject: {fileID: 0}
 --- !u!4 &1990917327
 Transform:
   m_ObjectHideFlags: 0

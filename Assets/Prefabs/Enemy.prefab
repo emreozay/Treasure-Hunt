@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02c009ad16e3be147be5a131490aecb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxMovementSpeed: 6
+  MaxMovementSpeed: 7
   target: {x: -14, y: 2, z: 0}
   newTarget: 0
   holeParent: {fileID: 0}

@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2bd5080d1441e84fae02d28d07e8286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxMovementSpeed: 6
+  MaxMovementSpeed: 7
   floatingJoystick: {fileID: 0}
 --- !u!114 &7136342948117528735
 MonoBehaviour:

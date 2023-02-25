@@ -70,12 +70,12 @@ public class CollisionController : MonoBehaviour
 
     private IEnumerator SpeedBoost()
     {
-        movement.MaxMovementSpeed *= 1.2f;
+        movement.MaxMovementSpeed *= 1.1f;
         movement.MovementSpeed = movement.MaxMovementSpeed;
 
         yield return new WaitForSeconds(5f);
 
-        movement.MaxMovementSpeed /= 1.2f;
+        movement.MaxMovementSpeed /= 1.1f;
         movement.MovementSpeed = movement.MaxMovementSpeed;
     }
 
