@@ -178,7 +178,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 3
     compressionQuality: 50
     crunchedCompression: 1
     allowsAlphaSplitting: 0
@@ -1027,13 +1027,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pouch front_spritesheet_27: 3955004632972726575
       pouch front_spritesheet_16: -6541871422117347439
       pouch front_spritesheet_23: 1491447585668244311
       pouch front_spritesheet_3: -2043490303124484371
       pouch front_spritesheet_24: 2515580325366305165
       pouch front_spritesheet_30: 2346556989351666176
-      pouch front_spritesheet_33: 1271581550270486127
+      pouch front_spritesheet_6: -3971314688762340831
       pouch front_spritesheet_26: 8328381136995217324
       pouch front_spritesheet_2: 4880176380412579414
       pouch front_spritesheet_32: -8168372029199200865
@@ -1043,6 +1042,7 @@ TextureImporter:
       pouch front_spritesheet_28: -4239378295203895646
       pouch front_spritesheet_8: 8029242016104190314
       pouch front_spritesheet_9: -1781950528471692980
+      pouch front_spritesheet_25: 2689606665659136385
       pouch front_spritesheet_17: 349545567031368164
       pouch front_spritesheet_7: 5920782330156084393
       pouch front_spritesheet_4: 7203420539625142405
@@ -1061,8 +1061,8 @@ TextureImporter:
       pouch front_spritesheet_20: -6836662148345081222
       pouch front_spritesheet_15: -5822439207742981021
       pouch front_spritesheet_31: 5207238971912324871
-      pouch front_spritesheet_6: -3971314688762340831
-      pouch front_spritesheet_25: 2689606665659136385
+      pouch front_spritesheet_33: 1271581550270486127
+      pouch front_spritesheet_27: 3955004632972726575
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
