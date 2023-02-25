@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -11,6 +12,9 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     private GameObject gameWinPanel;
     [SerializeField]
+    private GameObject tapToStartPanel;
+
+    [SerializeField]
     private Transform scoreboard;
 
     [SerializeField]
@@ -23,6 +27,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private Transform[] scoreParents;
+
+    public static Action CountdownStartAction;
+    public static Action CountdownFinishAction;
 
     private int timeLeft = 60;
 
@@ -130,5 +137,11 @@ public class UIManager : MonoBehaviour
         //gameWinPanel.SetActive(false);
 
         print("Load next level!");
+    }
+
+    public void TapToStart()
+    {
+        tapToStartPanel.SetActive(false);
+        CountdownStartAction?.Invoke();
     }
 }

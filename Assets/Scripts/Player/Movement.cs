@@ -11,12 +11,14 @@ public abstract class Movement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Sprite firstSprite;
 
-    protected bool isMoving = true;
+    protected bool isMoving = false;
 
     protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        UIManager.CountdownFinishAction += ContinueMoving;
 
         //LevelManager.Instance.NextLevelAction += SetFirstPosition;
         //LevelManager.Instance.NextLevelAction += SetFirstSprite;
@@ -49,6 +51,7 @@ public abstract class Movement : MonoBehaviour
 
     private void OnDestroy()
     {
+        UIManager.CountdownFinishAction -= ContinueMoving;
         //LevelManager.Instance.NextLevelAction -= SetFirstPosition;
         //LevelManager.Instance.NextLevelAction -= SetFirstSprite;
     }
