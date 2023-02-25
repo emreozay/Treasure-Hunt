@@ -6,6 +6,7 @@ public class GameLevel : ScriptableObject
 {
     public List<LevelObjectInfo> levelObjectList = new List<LevelObjectInfo>();
     public Vector2 mapSizeMultiplier = Vector2.one;
+    public int levelIndex;
 
     public void ClearLevelObjectList()
     {

@@ -1,6 +1,7 @@
 using NavMeshPlus.Components;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -18,7 +19,7 @@ public class LevelManager : MonoBehaviour
     private GameObject holeParent;
     private GameObject boostParent;
 
-    private GameLevel[] gameLevels;
+    private List<GameLevel> gameLevels = new List<GameLevel>();
 
     [SerializeField]
     private NavMeshSurface navMeshSurface;
@@ -54,7 +55,9 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        gameLevels = Resources.LoadAll<GameLevel>("Levels");
+        gameLevels = Resources.LoadAll<GameLevel>("Levels").ToList();
+        gameLevels = gameLevels.OrderBy(w => w.levelIndex).ToList();
+
         level = PlayerPrefs.GetInt("Level", 1);
 
         environmentParent = GameObject.Find("Environment");
@@ -269,16 +272,17 @@ public class LevelManager : MonoBehaviour
 
     public void NextLevel()
     {
-        if (gameLevels.Length > level)
+        if (gameLevels.Count > level)
             level++;
     }
 
     public void CreateNewLevel()
     {
-        gameLevels = Resources.LoadAll<GameLevel>("Levels");
-        int levelIndex = gameLevels.Length + 1;
+        gameLevels = Resources.LoadAll<GameLevel>("Levels").ToList();
+        int levelIndex = gameLevels.Count + 1;
 
         GameLevel newLevelAsset = ScriptableObject.CreateInstance<GameLevel>();
+        newLevelAsset.levelIndex = levelIndex;
 
         AssetDatabase.CreateAsset(newLevelAsset, "Assets/Resources/Levels/Level" + levelIndex + ".asset");
         AssetDatabase.SaveAssets();

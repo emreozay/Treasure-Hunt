@@ -66,3 +66,4 @@ MonoBehaviour:
   - type: 11
     position: {x: -16.5, y: 1, z: 0}
   mapSizeMultiplier: {x: 1.371, y: 1.389}
+  levelIndex: 7
