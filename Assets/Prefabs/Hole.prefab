@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 24268651057230154}
   - component: {fileID: -520655080635141738}
   - component: {fileID: -222379178594556917}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hole
   m_TagString: Hole
   m_Icon: {fileID: 2800000, guid: 81a2def7e556b554aacba6f72bb8e060, type: 3}

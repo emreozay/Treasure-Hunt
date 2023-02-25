@@ -17,6 +17,8 @@ public class CollectableCreator : MonoBehaviour
     private SpriteRenderer megaBootsSpriteRenderer;
     private SpriteRenderer frostArrowSpriteRenderer;
 
+    private LayerMask holeMask;
+
     public static CollectableCreator Instance { get; private set; }
 
     private void Awake()
@@ -34,12 +36,24 @@ public class CollectableCreator : MonoBehaviour
     private void Start()
     {
         StartCoroutine(SpawnBoosts());
+
+        holeMask = LayerMask.GetMask("Hole");
     }
 
     public void CreateNewTreasure()
     {
-        Vector3 randomSpawnPosition = new Vector3(Random.Range(-15f, 15f), Random.Range(-20f, 20f), 0);
-        GameObject newHole = Instantiate(holePrefab, randomSpawnPosition, Quaternion.identity, holeParent);
+        Vector3 randomSpawnPosition = LevelManager.Instance.GetRandomPosition();
+
+        Collider2D[] col = Physics2D.OverlapCircleAll(randomSpawnPosition, 7f, holeMask);
+        
+        while (col.Length > 0)
+        {
+            randomSpawnPosition = LevelManager.Instance.GetRandomPosition();
+
+            col = Physics2D.OverlapCircleAll(randomSpawnPosition, 7f, holeMask);
+        }
+
+        Instantiate(holePrefab, randomSpawnPosition, Quaternion.identity, holeParent);
     }
 
     private IEnumerator SpawnBoosts()
