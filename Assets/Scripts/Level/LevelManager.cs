@@ -278,6 +278,8 @@ public class LevelManager : MonoBehaviour
 
     public void CreateNewLevel()
     {
+#if UNITY_EDITOR
+
         gameLevels = Resources.LoadAll<GameLevel>("Levels").ToList();
         int levelIndex = gameLevels.Count + 1;
 
@@ -292,6 +294,7 @@ public class LevelManager : MonoBehaviour
         LoadCurrentLevel(true);
 
         EditorUtility.FocusProjectWindow();
+#endif   
     }
 
     private void SetParent(Transform newObject, int index)
