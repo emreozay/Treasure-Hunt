@@ -13,18 +13,58 @@ MonoBehaviour:
   m_Name: Level5
   m_EditorClassIdentifier: 
   levelObjectList:
-  - type: 4
-    position: {x: 7.2910156, y: 1.2050934, z: 0}
+  - type: 3
+    position: {x: -6.53, y: 12.89, z: 0}
   - type: 10
-    position: {x: 12.812422, y: -9.211491, z: 0}
-  - type: 7
-    position: {x: 8.705631, y: 5.72339, z: 0}
-  - type: 1
-    position: {x: 8.450714, y: 2.9876728, z: 0}
-  - type: 2
-    position: {x: -10.268269, y: 2.8982277, z: 0}
-  - type: 8
-    position: {x: -5.7682743, y: -12.538315, z: 0}
+    position: {x: 10.26, y: 4.83, z: 0}
   - type: 9
-    position: {x: 3.890226, y: 15.827874, z: 0}
-  mapSizeMultiplier: {x: 1.821, y: 1.453}
+    position: {x: 1.26, y: -15.24, z: 0}
+  - type: 2
+    position: {x: 11.14, y: -3.38, z: 0}
+  - type: 1
+    position: {x: -2.0410094, y: 17.901577, z: 0}
+  - type: 1
+    position: {x: 11.427191, y: -6.3150234, z: 0}
+  - type: 0
+    position: {x: -10.52, y: 13.69, z: 0}
+  - type: 4
+    position: {x: -10.373064, y: 6.2792053, z: 0}
+  - type: 4
+    position: {x: -11.11, y: -4.85, z: 0}
+  - type: 3
+    position: {x: -14.75, y: 12.89, z: 0}
+  - type: 3
+    position: {x: 1.4819617, y: -12.440881, z: 0}
+  - type: 2
+    position: {x: -1.5702596, y: -14.354897, z: 0}
+  - type: 2
+    position: {x: 11.28, y: -9.12, z: 0}
+  - type: 6
+    position: {x: -3.86, y: 9.22, z: 0}
+  - type: 6
+    position: {x: 3.48, y: 8.14, z: 0}
+  - type: 7
+    position: {x: 0.29, y: -8.48, z: 0}
+  - type: 7
+    position: {x: 15, y: 6.76, z: 0}
+  - type: 8
+    position: {x: -1.23, y: -7.28, z: 0}
+  - type: 8
+    position: {x: -3.23, y: 8.03, z: 0}
+  - type: 5
+    position: {x: -15.36, y: -10.39, z: 0}
+  - type: 5
+    position: {x: 7.2, y: 16.94, z: 0}
+  - type: 11
+    position: {x: 13.373866, y: 17.31797, z: 0}
+  - type: 11
+    position: {x: 10.6, y: -14.64, z: 0}
+  - type: 11
+    position: {x: -12.01, y: 20.58, z: 0}
+  - type: 11
+    position: {x: -12.8, y: -18.38, z: 0}
+  - type: 11
+    position: {x: 15.46, y: -1.63, z: 0}
+  - type: 11
+    position: {x: -18.3, y: 1.42, z: 0}
+  mapSizeMultiplier: {x: 1.3, y: 1.15}

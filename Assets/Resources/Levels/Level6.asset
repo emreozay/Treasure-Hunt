@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017304ad6ad46ed4ba6ef1edb6d01804, type: 3}
+  m_Name: Level6
+  m_EditorClassIdentifier: 
+  levelObjectList:
+  - type: 10
+    position: {x: 15.4, y: 17.8, z: 0}
+  - type: 9
+    position: {x: -15.6, y: 3.2, z: 0}
+  - type: 6
+    position: {x: -5.8132586, y: 13.188656, z: 0}
+  - type: 6
+    position: {x: 8.2, y: 5.3, z: 0}
+  - type: 7
+    position: {x: 1.756136, y: 19.828255, z: 0}
+  - type: 7
+    position: {x: -10.56834, y: 7.8919744, z: 0}
+  - type: 8
+    position: {x: -1.3, y: -16.5, z: 0}
+  - type: 8
+    position: {x: 1.4590778, y: -10.333546, z: 0}
+  - type: 5
+    position: {x: 10.3, y: -7.7, z: 0}
+  - type: 5
+    position: {x: 11.1, y: -20.1, z: 0}
+  - type: 4
+    position: {x: -10.4, y: -5, z: 0}
+  - type: 4
+    position: {x: -3.9, y: 4.5, z: 0}
+  - type: 4
+    position: {x: 4.6, y: -4.3, z: 0}
+  - type: 2
+    position: {x: -19.071674, y: 7.2106085, z: 0}
+  - type: 2
+    position: {x: -6.264833, y: 0.37004662, z: 0}
+  - type: 2
+    position: {x: -4, y: 9.7, z: 0}
+  - type: 3
+    position: {x: -7.7, y: -19, z: 0}
+  - type: 3
+    position: {x: 13.9, y: 11.8, z: 0}
+  - type: 3
+    position: {x: -13.2, y: 12.4, z: 0}
+  - type: 0
+    position: {x: -16.267506, y: -14.614159, z: 0}
+  - type: 0
+    position: {x: -5.7, y: 8.2, z: 0}
+  - type: 0
+    position: {x: 17.51165, y: -16.130692, z: 0}
+  - type: 1
+    position: {x: 17.8, y: -0.1, z: 0}
+  - type: 1
+    position: {x: -12.596886, y: 18.821178, z: 0}
+  - type: 2
+    position: {x: -17.837177, y: -19.053982, z: 0}
+  - type: 2
+    position: {x: 10.508282, y: 0.520731, z: 0}
+  - type: 2
+    position: {x: -6.6, y: 20.6, z: 0}
+  - type: 2
+    position: {x: 3, y: -8.6, z: 0}
+  - type: 11
+    position: {x: 13.476326, y: 10.24757, z: 0}
+  - type: 11
+    position: {x: 15.5, y: -8.9, z: 0}
+  - type: 11
+    position: {x: -17.5, y: 16.9, z: 0}
+  - type: 11
+    position: {x: -14.107414, y: -4.081789, z: 0}
+  - type: 11
+    position: {x: 2.8, y: -18.4, z: 0}
+  - type: 11
+    position: {x: -17.9, y: -20.2, z: 0}
+  - type: 11
+    position: {x: 2.5543861, y: 17.473557, z: 0}
+  mapSizeMultiplier: {x: 1.279, y: 1.206}

@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 017304ad6ad46ed4ba6ef1edb6d01804, type: 3}
+  m_Name: Level9
+  m_EditorClassIdentifier: 
+  levelObjectList:
+  - type: 11
+    position: {x: 23.5, y: 2.7, z: 0}
+  - type: 11
+    position: {x: 11.3, y: 15.6, z: 0}
+  - type: 11
+    position: {x: -20.8, y: 28.3, z: 0}
+  - type: 11
+    position: {x: -12.23047, y: -28.331367, z: 0}
+  - type: 11
+    position: {x: 3.1, y: -11.2, z: 0}
+  - type: 11
+    position: {x: -11, y: 16.2, z: 0}
+  - type: 11
+    position: {x: 7.0535765, y: 30.925661, z: 0}
+  - type: 11
+    position: {x: 19.9, y: -24.4, z: 0}
+  - type: 11
+    position: {x: -18.689713, y: -6.4816017, z: 0}
+  - type: 0
+    position: {x: -2.791771, y: 9.32733, z: 0}
+  - type: 0
+    position: {x: 16.437809, y: 9.225515, z: 0}
+  - type: 0
+    position: {x: -9, y: -21.6, z: 0}
+  - type: 1
+    position: {x: -18.107094, y: 33.776924, z: 0}
+  - type: 1
+    position: {x: 10.663406, y: 4.361699, z: 0}
+  - type: 1
+    position: {x: -8.011505, y: 5.1263924, z: 0}
+  - type: 2
+    position: {x: 3.6, y: -6.5, z: 0}
+  - type: 2
+    position: {x: -14.140793, y: -1.4557762, z: 0}
+  - type: 2
+    position: {x: 4.615206, y: 27.019918, z: 0}
+  - type: 3
+    position: {x: 20.075375, y: -29.77367, z: 0}
+  - type: 3
+    position: {x: -8.140862, y: -5.518791, z: 0}
+  - type: 3
+    position: {x: -19.8, y: -26.4, z: 0}
+  - type: 4
+    position: {x: 23.50975, y: -28.70406, z: 0}
+  - type: 4
+    position: {x: -9.119015, y: 11.3207655, z: 0}
+  - type: 4
+    position: {x: 7.6, y: 14.266691, z: 0}
+  - type: 5
+    position: {x: 15.142989, y: -17.865826, z: 0}
+  - type: 5
+    position: {x: 1.4733086, y: 8.769888, z: 0}
+  - type: 5
+    position: {x: -5.8704014, y: 3.9146986, z: 0}
+  - type: 6
+    position: {x: -0.6776867, y: 11.912819, z: 0}
+  - type: 6
+    position: {x: 17.182178, y: 14.907683, z: 0}
+  - type: 6
+    position: {x: 14.200537, y: 15.910586, z: 0}
+  - type: 7
+    position: {x: -24.969105, y: 9.0916, z: 0}
+  - type: 7
+    position: {x: 1.8349514, y: -21.994137, z: 0}
+  - type: 7
+    position: {x: -24.5, y: 28.2, z: 0}
+  - type: 8
+    position: {x: 16.30825, y: -1.8705559, z: 0}
+  - type: 8
+    position: {x: -16.7, y: 28.5, z: 0}
+  - type: 8
+    position: {x: 17.267841, y: -11.823445, z: 0}
+  - type: 9
+    position: {x: 14.911037, y: -5.418274, z: 0}
+  - type: 10
+    position: {x: -9.622364, y: -25.874954, z: 0}
+  - type: 2
+    position: {x: 12.851311, y: 23.05217, z: 0}
+  - type: 2
+    position: {x: -21.70047, y: 18.87968, z: 0}
+  - type: 3
+    position: {x: -7.1, y: 14.3, z: 0}
+  - type: 3
+    position: {x: 2.5, y: -8.6, z: 0}
+  - type: 4
+    position: {x: 15.1, y: -25.7, z: 0}
+  - type: 4
+    position: {x: -12.8, y: -14.7, z: 0}
+  mapSizeMultiplier: {x: 1.7, y: 1.7}

@@ -31,6 +31,8 @@ public class LevelManager : MonoBehaviour
 
     private Vector2 mapSizeMultiplier = Vector2.one;
 
+    private Vector2 defaulMapBorder = new Vector2(15f, 20f);
+
     //public Action NextLevelAction;
 
     private bool newLevel = false;
@@ -183,7 +185,10 @@ public class LevelManager : MonoBehaviour
 
     public void CreateObject(int objectIndex)
     {
-        Vector3 newPosition = transform.position = new Vector3(Random.Range(-15f, 15f), Random.Range(-20f, 20f), 0);
+        Vector2 newMapBorder = defaulMapBorder * mapSizeMultiplier;
+        print(newMapBorder + " - " + defaulMapBorder + " - " + mapSizeMultiplier);
+        Vector3 newPosition = new Vector3(Random.Range(-newMapBorder.x, newMapBorder.x), Random.Range(-newMapBorder.y, newMapBorder.y), 0);
+        //Vector3 newPosition = new Vector3(Random.Range(-15f, 15f), Random.Range(-20f, 20f), 0);
         GameObject newObject = Instantiate(prefabList[objectIndex].prefab, newPosition, Quaternion.identity);
 
         SetParent(newObject.transform, objectIndex);
@@ -218,7 +223,7 @@ public class LevelManager : MonoBehaviour
         mapSpriteRenderer = Instantiate(mapPrefab).GetComponent<SpriteRenderer>();
         //mapSpriteRenderer.size *= mapSizeMultiplier;
         mapSpriteRenderer.transform.localScale = mapSizeMultiplier;
-        
+
         boundaries = Instantiate(mapBoundaries);
         boundaries.transform.localScale = mapSizeMultiplier;
     }
