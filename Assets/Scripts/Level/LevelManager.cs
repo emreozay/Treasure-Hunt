@@ -212,13 +212,12 @@ public class LevelManager : MonoBehaviour
         }
 
         mapSizeMultiplier = sizeMultiplier;
-        Vector2 mapDefaultSize = new Vector2(35f, 45f);
 
         if (backgroundMap != null)
             backgroundMap.transform.localScale = mapSizeMultiplier;
 
         if (boundaries != null)
-            boundaries.transform.localScale = sizeMultiplier;
+            boundaries.transform.localScale = mapSizeMultiplier;
 
         return mapSizeMultiplier;
     }
