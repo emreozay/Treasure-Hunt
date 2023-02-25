@@ -188,12 +188,19 @@ public class LevelManager : MonoBehaviour
 
     public void CreateObject(int objectIndex)
     {
-        Vector2 newMapBorder = defaulMapBorder * mapSizeMultiplier;
-        Vector3 newPosition = new Vector3(Random.Range(-newMapBorder.x, newMapBorder.x), Random.Range(-newMapBorder.y, newMapBorder.y), 0);
+        Vector3 newPosition = GetRandomPosition();
         
         GameObject newObject = Instantiate(prefabList[objectIndex].prefab, newPosition, Quaternion.identity);
 
         SetParent(newObject.transform, objectIndex);
+    }
+
+    public Vector3 GetRandomPosition()
+    {
+        Vector2 newMapBorder = defaulMapBorder * mapSizeMultiplier;
+        Vector3 newPosition = new Vector3(Random.Range(-newMapBorder.x, newMapBorder.x), Random.Range(-newMapBorder.y, newMapBorder.y), 0);
+
+        return newPosition;
     }
 
     public Vector2 SetMapSize(Vector2 sizeMultiplier)
@@ -260,7 +267,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public Vector2 GetMapSize()
+    public Vector2 GetMapSizeMultiplier()
     {
         return mapSizeMultiplier;
     }

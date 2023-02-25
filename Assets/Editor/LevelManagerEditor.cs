@@ -12,7 +12,7 @@ public class LevelManagerEditor : Editor
     private void OnEnable()
     {
         levelManager = (LevelManager)target;
-        mapSizeMultiplier = levelManager.GetMapSize();
+        mapSizeMultiplier = levelManager.GetMapSizeMultiplier();
     }
 
     public override void OnInspectorGUI()

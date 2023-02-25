@@ -33,12 +33,12 @@ public class CollisionController : MonoBehaviour
         }
         if (collision.CompareTag("Boost"))
         {
-            collision.gameObject.SetActive(false);
+            DeactivateBoostObject(collision.gameObject);
             StartCoroutine(SpeedBoost());
         }
         if (collision.CompareTag("Freeze"))
         {
-            collision.gameObject.SetActive(false);
+            DeactivateBoostObject(collision.gameObject);
             StartCoroutine(Freeze());
         }
     }
@@ -94,5 +94,11 @@ public class CollisionController : MonoBehaviour
         {
             enemyMovements[i].UnfreezeCharacter();
         }
+    }
+
+    private void DeactivateBoostObject(GameObject boostObject)
+    {
+        boostObject.GetComponent<Collider2D>().enabled = false;
+        boostObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 }
