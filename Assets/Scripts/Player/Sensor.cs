@@ -11,9 +11,14 @@ public class Sensor : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
+    private bool isPlayer;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (GetComponentInParent<PlayerController>() != null)
+            isPlayer = true;
     }
 
     void Update()
@@ -48,8 +53,11 @@ public class Sensor : MonoBehaviour
         {
             spriteRenderer.enabled = true;
 
-            if (minDistance < 4f)
+            if (minDistance < 3.5f)
             {
+                if (isPlayer)
+                    Handheld.Vibrate();
+
                 spriteRenderer.sprite = sensorHalos[2];
                 movement.MovementSpeed = movement.MaxMovementSpeed / 2.5f;
             }
