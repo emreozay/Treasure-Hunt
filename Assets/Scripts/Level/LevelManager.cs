@@ -1,6 +1,7 @@
 using NavMeshPlus.Components;
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -200,7 +201,10 @@ public class LevelManager : MonoBehaviour
         Vector2 mapDefaultSize = new Vector2(35f, 45f);
 
         if (mapSpriteRenderer != null)
-            mapSpriteRenderer.size = mapDefaultSize * sizeMultiplier;
+        {
+            //mapSpriteRenderer.size = mapDefaultSize * sizeMultiplier;
+            mapSpriteRenderer.transform.localScale = mapSizeMultiplier;
+        }
 
         if (boundaries != null)
             boundaries.transform.localScale = sizeMultiplier;
@@ -212,8 +216,9 @@ public class LevelManager : MonoBehaviour
     {
         mapSizeMultiplier = gameLevel.mapSizeMultiplier;
         mapSpriteRenderer = Instantiate(mapPrefab).GetComponent<SpriteRenderer>();
-        mapSpriteRenderer.size *= mapSizeMultiplier;
-        //mapSpriteRenderer.transform.localScale = mapSizeMultiplier;
+        //mapSpriteRenderer.size *= mapSizeMultiplier;
+        mapSpriteRenderer.transform.localScale = mapSizeMultiplier;
+        
         boundaries = Instantiate(mapBoundaries);
         boundaries.transform.localScale = mapSizeMultiplier;
     }
@@ -261,6 +266,23 @@ public class LevelManager : MonoBehaviour
     {
         if (gameLevels.Length > level)
             level++;
+    }
+
+    public void CreateNewLevel()
+    {
+        gameLevels = Resources.LoadAll<GameLevel>("Levels");
+        int levelIndex = gameLevels.Length + 1;
+
+        GameLevel newLevelAsset = ScriptableObject.CreateInstance<GameLevel>();
+
+        AssetDatabase.CreateAsset(newLevelAsset, "Assets/Resources/Levels/Level" + levelIndex + ".asset");
+        AssetDatabase.SaveAssets();
+
+        gameLevel = newLevelAsset;
+        ClearLevel();
+        LoadCurrentLevel(true);
+
+        EditorUtility.FocusProjectWindow();
     }
 
     private void SetParent(Transform newObject, int index)

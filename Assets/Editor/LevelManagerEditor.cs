@@ -48,6 +48,12 @@ public class LevelManagerEditor : Editor
         GUILayout.Space(10);
 
         GUILayout.BeginHorizontal();
+        if (GUILayout.Button("Create New Level"))
+        {
+            Debug.Log("New level created!");
+            levelManager.CreateNewLevel();
+
+        }
         if (GUILayout.Button("Save Level"))
         {
             Debug.Log("Saved!");
