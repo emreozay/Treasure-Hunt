@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField]
     private List<SaveLevelPrefab> prefabList = new List<SaveLevelPrefab>();
 
-    private SpriteRenderer mapSpriteRenderer;
+    private GameObject backgroundMap;
     private GameObject boundaries;
 
     private Vector2 mapSizeMultiplier = Vector2.one;
@@ -189,9 +189,8 @@ public class LevelManager : MonoBehaviour
     public void CreateObject(int objectIndex)
     {
         Vector2 newMapBorder = defaulMapBorder * mapSizeMultiplier;
-        print(newMapBorder + " - " + defaulMapBorder + " - " + mapSizeMultiplier);
         Vector3 newPosition = new Vector3(Random.Range(-newMapBorder.x, newMapBorder.x), Random.Range(-newMapBorder.y, newMapBorder.y), 0);
-        //Vector3 newPosition = new Vector3(Random.Range(-15f, 15f), Random.Range(-20f, 20f), 0);
+        
         GameObject newObject = Instantiate(prefabList[objectIndex].prefab, newPosition, Quaternion.identity);
 
         SetParent(newObject.transform, objectIndex);
@@ -208,11 +207,8 @@ public class LevelManager : MonoBehaviour
         mapSizeMultiplier = sizeMultiplier;
         Vector2 mapDefaultSize = new Vector2(35f, 45f);
 
-        if (mapSpriteRenderer != null)
-        {
-            //mapSpriteRenderer.size = mapDefaultSize * sizeMultiplier;
-            mapSpriteRenderer.transform.localScale = mapSizeMultiplier;
-        }
+        if (backgroundMap != null)
+            backgroundMap.transform.localScale = mapSizeMultiplier;
 
         if (boundaries != null)
             boundaries.transform.localScale = sizeMultiplier;
@@ -223,9 +219,8 @@ public class LevelManager : MonoBehaviour
     public void LoadMap()
     {
         mapSizeMultiplier = gameLevel.mapSizeMultiplier;
-        mapSpriteRenderer = Instantiate(mapPrefab).GetComponent<SpriteRenderer>();
-        //mapSpriteRenderer.size *= mapSizeMultiplier;
-        mapSpriteRenderer.transform.localScale = mapSizeMultiplier;
+        backgroundMap = Instantiate(mapPrefab);
+        backgroundMap.transform.localScale = mapSizeMultiplier;
 
         boundaries = Instantiate(mapBoundaries);
         boundaries.transform.localScale = mapSizeMultiplier;

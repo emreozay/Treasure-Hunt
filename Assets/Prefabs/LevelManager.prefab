@@ -44,9 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8e0b438c035e04d8e1eb780c40380b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameLevel: {fileID: 11400000, guid: 4d7b858d671249246a4528e127c0cd02, type: 2}
+  gameLevel: {fileID: 11400000, guid: 3db35a2a0bd54b547b026fe9f656cc7e, type: 2}
   mapPrefab: {fileID: 5191569127105410408, guid: fad6338007807f2428f3d5c00abc3af5, type: 3}
   mapBoundaries: {fileID: 4701790168176827286, guid: c0e2b0c9be11aa54c997f789084c9a36, type: 3}
+  navMeshSurface: {fileID: 0}
   prefabList:
   - type: 0
     prefab: {fileID: 6659704166371846733, guid: cc0769a8d3976a241ab1df0a21e255e7, type: 3}
