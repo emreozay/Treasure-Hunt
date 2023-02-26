@@ -34,8 +34,6 @@ public class LevelManager : MonoBehaviour
 
     private Vector2 defaulMapBorder = new Vector2(15f, 20f);
 
-    //public Action NextLevelAction;
-
     private bool newLevel = false;
     private int level = 1;
 
@@ -269,6 +267,11 @@ public class LevelManager : MonoBehaviour
     public Vector2 GetMapSizeMultiplier()
     {
         return mapSizeMultiplier;
+    }
+
+    public Vector2 GetMapSize()
+    {
+        return mapSizeMultiplier * defaulMapBorder;
     }
 
     public void NextLevel()
