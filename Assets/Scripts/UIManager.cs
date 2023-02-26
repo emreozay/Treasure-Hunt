@@ -125,17 +125,13 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-        LevelManager.Instance.LoadCurrentLevel(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         print("Restart the level!");
     }
 
     public void NextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //LevelManager.Instance.NextLevelAction?.Invoke();
-        //LevelManager.Instance.LoadCurrentLevel();
-        //gameWinPanel.SetActive(false);
-
         print("Load next level!");
     }
 
