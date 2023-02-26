@@ -11,11 +11,10 @@ public class CollisionController : MonoBehaviour
     [SerializeField]
     private Transform enemyParent;
 
-    [SerializeField]
-    private Transform scoreTextParent; // Change this later!!!
-
     private Animator animator;
     private Movement movement;
+
+    private PlayerUI playerUI;
 
     private int score;
 
@@ -23,6 +22,7 @@ public class CollisionController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         movement = GetComponent<Movement>();
+        playerUI = GetComponent<PlayerUI>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -61,7 +61,7 @@ public class CollisionController : MonoBehaviour
         pouch.SetActive(false);
 
         score++;
-        UIManager.Instance.SetScoreText(scoreTextParent, score);
+        playerUI.SetScoreText(score);
 
         movement.ContinueMoving();
 

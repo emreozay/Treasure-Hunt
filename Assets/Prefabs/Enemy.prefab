@@ -148,9 +148,10 @@ GameObject:
   - component: {fileID: 7136342948117528732}
   - component: {fileID: 7136342948117528931}
   - component: {fileID: 7136342948117528934}
+  - component: {fileID: 324502177}
   - component: {fileID: 324502176}
   - component: {fileID: 7136342948117528735}
-  - component: {fileID: 324502177}
+  - component: {fileID: -4793556399986887416}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Player
@@ -297,38 +298,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &324502176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136342948117528935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02c009ad16e3be147be5a131490aecb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxMovementSpeed: 7
-  target: {x: -14, y: 2, z: 0}
-  newTarget: 0
-  holeParent: {fileID: 0}
-  newColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &7136342948117528735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136342948117528935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e30881c870820bd48b18beb38981eb1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pouch: {fileID: 361837709181064932}
-  enemyParent: {fileID: 0}
-  scoreTextParent: {fileID: 0}
 --- !u!195 &324502177
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -351,6 +320,51 @@ NavMeshAgent:
   m_BaseOffset: 0.6
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &324502176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136342948117528935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c009ad16e3be147be5a131490aecb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxMovementSpeed: 7
+  target: {x: -14, y: 2, z: 0}
+  newTarget: 0
+  holeParent: {fileID: 0}
+--- !u!114 &7136342948117528735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136342948117528935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30881c870820bd48b18beb38981eb1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pouch: {fileID: 361837709181064932}
+  enemyParent: {fileID: 0}
+--- !u!114 &-4793556399986887416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136342948117528935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67e5e05c77f47df4da54c469378e1933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textParent: {fileID: 0}
+  nameRenderer: {fileID: 6311555926322579485}
+  nameText: {fileID: 6311555926322579482}
 --- !u!1 &7136342948228292642
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,10 +707,27 @@ PrefabInstance:
       propertyPath: m_text
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4702805236929244226, guid: 86426cfc6298b1140817f5c4ad280516, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 86426cfc6298b1140817f5c4ad280516, type: 3}
+--- !u!114 &6311555926322579482 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4095786850329503659, guid: 86426cfc6298b1140817f5c4ad280516, type: 3}
+  m_PrefabInstance: {fileID: 8016423676551573425}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6311555926322579483 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4095786850329503658, guid: 86426cfc6298b1140817f5c4ad280516, type: 3}
+  m_PrefabInstance: {fileID: 8016423676551573425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6311555926322579485 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4095786850329503660, guid: 86426cfc6298b1140817f5c4ad280516, type: 3}
   m_PrefabInstance: {fileID: 8016423676551573425}
   m_PrefabAsset: {fileID: 0}

@@ -376,6 +376,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 89559315}
     m_Modifications:
+    - target: {fileID: -4793556399986887416, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
+      propertyPath: textParent
+      value: 
+      objectReference: {fileID: 1459105877}
     - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: holeParent
       value: 
@@ -3114,7 +3118,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Emre
+  m_text: You
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cc552ea2b63551e4fa2f9a64d37b15af, type: 2}
   m_sharedMaterial: {fileID: -3333756644904616077, guid: cc552ea2b63551e4fa2f9a64d37b15af, type: 2}
@@ -3336,6 +3340,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 89559315}
     m_Modifications:
+    - target: {fileID: -4793556399986887416, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
+      propertyPath: textParent
+      value: 
+      objectReference: {fileID: 691327632}
     - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: holeParent
       value: 
@@ -3472,6 +3480,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 89559315}
     m_Modifications:
+    - target: {fileID: -4793556399986887416, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
+      propertyPath: textParent
+      value: 
+      objectReference: {fileID: 429097143}
     - target: {fileID: 324502176, guid: aaed4bc9134f92241b0f9e7ec7fdd760, type: 3}
       propertyPath: holeParent
       value: 
@@ -4570,10 +4582,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 215809427, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
+      propertyPath: m_text
+      value: You
+      objectReference: {fileID: 0}
     - target: {fileID: 1739894532, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
       propertyPath: falan
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2941356201916539564, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
+      propertyPath: textParent
+      value: 
+      objectReference: {fileID: 25086892}
     - target: {fileID: 7136342947491753380, guid: 748e4f3f4dbf0b446b2f7325e6af9e18, type: 3}
       propertyPath: holeParent
       value: 
