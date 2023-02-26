@@ -53,7 +53,7 @@ public class Sensor : MonoBehaviour
         {
             spriteRenderer.enabled = true;
 
-            if (minDistance < 3f)
+            if (minDistance < 2.5f)
             {
                 if (isPlayer)
                     Handheld.Vibrate();
