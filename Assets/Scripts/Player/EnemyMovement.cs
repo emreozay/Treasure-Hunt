@@ -16,13 +16,9 @@ public class EnemyMovement : Movement
     [SerializeField]
     private Transform holeParent;
 
-    [SerializeField]
-    private Color newColor;
     private Vector3 newDestination;
-    private Vector3 currentDestination;
-    private Vector3 randomDestination;
 
-    public override float MovementSpeed { get => agent.speed; set => SetNewDestination(value); }
+    public override float MovementSpeed { get => agent.speed; set => SetCorrectDestination(value); }
 
     protected override void Awake()
     {
@@ -38,7 +34,7 @@ public class EnemyMovement : Movement
         base.Start();
         agent.speed = MaxMovementSpeed;
 
-        SetRandomDestination();
+        SetAgentDestination();
     }
 
     void Update()
@@ -47,13 +43,30 @@ public class EnemyMovement : Movement
         Animate();
     }
 
+    public override void ContinueMoving()
+    {
+        isMoving = true;
+        agent.isStopped = false;
+        
+        SetAgentDestination();
+        animator.SetBool("isRunning", true);
+    }
+
+    public override void StopMoving()
+    {
+        agent.velocity = Vector2.zero;
+        agent.isStopped = true;
+        agent.ResetPath();
+
+        isMoving = false;
+        animator.SetBool("isRunning", false);
+    }
+
     protected override void Move()
     {
         if ((agent.remainingDistance < 0.1f && isMoving) || agent.pathStatus == NavMeshPathStatus.PathPartial || agent.pathStatus == NavMeshPathStatus.PathInvalid)
         {
-            currentDestination = agent.destination;
-
-            SetRandomDestination();
+            SetAgentDestination();
         }
     }
 
@@ -77,32 +90,47 @@ public class EnemyMovement : Movement
         }
     }
 
-    public override void ContinueMoving()
+    private void SetAgentDestination()
     {
-        isMoving = true;
-        agent.isStopped = false;
-        SetRandomDestination();
-        animator.SetBool("isRunning", true);
+        EasyAIDestination();
     }
 
-    public override void StopMoving()
+    private void EasyAIDestination()
     {
-        agent.velocity = Vector2.zero;
-        agent.isStopped = true;
-        agent.ResetPath();
-
-        isMoving = false;
-        animator.SetBool("isRunning", false);
-    }
-
-    private void SetRandomDestination()
-    {
-        Vector3 newRandomDestination = new Vector3(Random.Range(-15f, 15f), Random.Range(-20f, 20f), 0);
-        randomDestination = newRandomDestination;
+        Vector3 newRandomDestination = LevelManager.Instance.GetRandomPosition();
+        
         agent.SetDestination(newRandomDestination);
     }
 
-    private void SetNewDestination(float newSpeed)
+    private void MediumAIDestination()
+    {
+        Transform randomHole = holeParent.GetChild(Random.Range(0, holeParent.childCount));
+        while (randomHole.CompareTag("DugHole"))
+        {
+            randomHole = holeParent.GetChild(Random.Range(0, holeParent.childCount));
+        }
+
+        Vector2 newDestination = randomHole.position;
+        newDestination += new Vector2(Random.Range(-6f, 6f), Random.Range(-6f, 6f));
+
+        agent.SetDestination(newDestination);
+    }
+
+    private void HardAIDestination()
+    {
+        Transform randomHole = holeParent.GetChild(Random.Range(0, holeParent.childCount));
+        while (randomHole.CompareTag("DugHole"))
+        {
+            randomHole = holeParent.GetChild(Random.Range(0, holeParent.childCount));
+        }
+
+        Vector2 newDestination = randomHole.position;
+        newDestination += new Vector2(Random.Range(-4.5f, 4.5f), Random.Range(-4.5f, 4.5f));
+
+        agent.SetDestination(newDestination);
+    }
+
+    private void SetCorrectDestination(float newSpeed)
     {
         float oldSpeed = agent.speed;
         agent.speed = newSpeed;
@@ -114,11 +142,12 @@ public class EnemyMovement : Movement
         {
             Vector3 positionDifference = agent.destination - transform.position;
             newDestination = transform.position - (positionDifference.normalized * 3f);
-            //newDestination = new Vector3(Mathf.Clamp(newDestination.x, -15f, 15f), Mathf.Clamp(newDestination.y, -20f, 20f), 0);
 
             newDestination.x += Mathf.Cos(Random.Range(180f, 360f) / (180f / Mathf.PI)) * 3f;
             newDestination.y += Mathf.Sin(Random.Range(180f, 360f) / (180f / Mathf.PI)) * 3f;
-            newDestination = new Vector3(Mathf.Clamp(newDestination.x, -15f, 15f), Mathf.Clamp(newDestination.y, -20f, 20f), 0);
+
+            Vector2 boundary = LevelManager.Instance.GetMapSize();
+            newDestination = new Vector3(Mathf.Clamp(newDestination.x, -boundary.x, boundary.x), Mathf.Clamp(newDestination.y, -boundary.y, boundary.y), 0);
 
             agent.SetDestination(newDestination);
         }
@@ -136,17 +165,5 @@ public class EnemyMovement : Movement
     {
         isMoving = true;
         agent.isStopped = false;
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = newColor;
-        Gizmos.DrawSphere(newDestination, 0.5f);
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawSphere(randomDestination, 0.5f);
-
-        Gizmos.color = Color.white;
-        Gizmos.DrawSphere(currentDestination, 0.5f);
     }
 }
