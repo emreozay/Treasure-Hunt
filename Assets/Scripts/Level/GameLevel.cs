@@ -4,9 +4,15 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewGameLevel", menuName = "New Game Level")]
 public class GameLevel : ScriptableObject
 {
-    public List<LevelObjectInfo> levelObjectList = new List<LevelObjectInfo>();
-    public Vector2 mapSizeMultiplier = Vector2.one;
     public int levelIndex;
+
+    public AILevel enemy1;
+    public AILevel enemy2;
+    public AILevel enemy3;
+
+    public Vector2 mapSizeMultiplier = Vector2.one;
+
+    public List<LevelObjectInfo> levelObjectList = new List<LevelObjectInfo>();
 
     public void ClearLevelObjectList()
     {

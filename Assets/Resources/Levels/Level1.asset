@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017304ad6ad46ed4ba6ef1edb6d01804, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
+  levelIndex: 1
+  enemy1: 0
+  enemy2: 0
+  enemy3: 0
+  mapSizeMultiplier: {x: 1, y: 1}
   levelObjectList:
   - type: 2
     position: {x: 6.717088, y: 4.353445, z: 0}
@@ -67,5 +72,3 @@ MonoBehaviour:
     position: {x: 10.332163, y: -2.9234962, z: 0}
   - type: 11
     position: {x: -11.25, y: -15.86, z: 0}
-  mapSizeMultiplier: {x: 1, y: 1}
-  levelIndex: 1

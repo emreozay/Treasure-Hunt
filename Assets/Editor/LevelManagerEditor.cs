@@ -20,7 +20,6 @@ public class LevelManagerEditor : Editor
         DrawDefaultInspector();
 
         GUILayout.Space(10);
-
         mapSizeMultiplier.x = EditorGUILayout.Slider("Map width size multiplier", mapSizeMultiplier.x, 1f, 2.5f);
         mapSizeMultiplier.y = EditorGUILayout.Slider("Map height size multiplier", mapSizeMultiplier.y, 1f, 2.5f);
 

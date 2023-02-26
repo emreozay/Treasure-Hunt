@@ -18,6 +18,10 @@ public class EnemyMovement : Movement
 
     private Vector3 newDestination;
 
+    private AILevel aiLevel;
+
+    private PlayerUIController playerUIController;
+
     public override float MovementSpeed { get => agent.speed; set => SetCorrectDestination(value); }
 
     protected override void Awake()
@@ -27,6 +31,8 @@ public class EnemyMovement : Movement
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        playerUIController = GetComponent<PlayerUIController>();
     }
 
     protected override void Start()
@@ -47,7 +53,7 @@ public class EnemyMovement : Movement
     {
         isMoving = true;
         agent.isStopped = false;
-        
+
         SetAgentDestination();
         animator.SetBool("isRunning", true);
     }
@@ -92,13 +98,26 @@ public class EnemyMovement : Movement
 
     private void SetAgentDestination()
     {
-        EasyAIDestination();
+        switch (aiLevel)
+        {
+            case AILevel.Easy:
+                EasyAIDestination();
+                break;
+            case AILevel.Medium:
+                MediumAIDestination();
+                break;
+            case AILevel.Hard:
+                HardAIDestination();
+                break;
+            default:
+                break;
+        }
     }
 
     private void EasyAIDestination()
     {
         Vector3 newRandomDestination = LevelManager.Instance.GetRandomPosition();
-        
+
         agent.SetDestination(newRandomDestination);
     }
 
@@ -166,4 +185,18 @@ public class EnemyMovement : Movement
         isMoving = true;
         agent.isStopped = false;
     }
+
+    public void SetAILevel(AILevel enemyAILevel)
+    {
+        aiLevel = enemyAILevel;
+
+        playerUIController.SetNameColor(enemyAILevel);
+    }
+}
+
+public enum AILevel
+{
+    Easy,
+    Medium,
+    Hard
 }

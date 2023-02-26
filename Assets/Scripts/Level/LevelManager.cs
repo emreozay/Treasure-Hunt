@@ -25,7 +25,17 @@ public class LevelManager : MonoBehaviour
     private NavMeshSurface navMeshSurface;
 
     [SerializeField]
+    private EnemyMovement[] enemyMovements;
+
+    [SerializeField]
     private List<SaveLevelPrefab> prefabList = new List<SaveLevelPrefab>();
+
+    [SerializeField]
+    private AILevel enemy1;
+    [SerializeField]
+    private AILevel enemy2;
+    [SerializeField]
+    private AILevel enemy3;
 
     private GameObject backgroundMap;
     private GameObject boundaries;
@@ -82,6 +92,9 @@ public class LevelManager : MonoBehaviour
         }
 
         gameLevel.mapSizeMultiplier = mapSizeMultiplier;
+        gameLevel.enemy1 = enemy1;
+        gameLevel.enemy2 = enemy2;
+        gameLevel.enemy3 = enemy3;
 
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(gameLevel);
@@ -165,6 +178,11 @@ public class LevelManager : MonoBehaviour
             newInstance.transform.position = levelObject.position;
         }
 
+        enemy1 = gameLevel.enemy1;
+        enemy2 = gameLevel.enemy2;
+        enemy3 = gameLevel.enemy3;
+        SetEnemyAIs();
+
         navMeshSurface?.BuildNavMesh();
     }
 
@@ -187,7 +205,7 @@ public class LevelManager : MonoBehaviour
     public void CreateObject(int objectIndex)
     {
         Vector3 newPosition = GetRandomPosition();
-        
+
         GameObject newObject = Instantiate(prefabList[objectIndex].prefab, newPosition, Quaternion.identity);
 
         SetParent(newObject.transform, objectIndex);
@@ -316,6 +334,13 @@ public class LevelManager : MonoBehaviour
             newObject.SetParent(boostParent.transform);
         else if (index == 11)
             newObject.SetParent(holeParent.transform);
+    }
+
+    private void SetEnemyAIs()
+    {
+        enemyMovements[0].SetAILevel(enemy1);
+        enemyMovements[1].SetAILevel(enemy2);
+        enemyMovements[2].SetAILevel(enemy3);
     }
 
     private void OnDestroy()
