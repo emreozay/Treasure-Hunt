@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI timeText;
+    [SerializeField]
+    private TextMeshProUGUI eliminatedText;
 
     [SerializeField]
     private Image timeBoxImage;
@@ -27,6 +29,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private Transform[] scoreParents;
+    [SerializeField]
+    private PlayerUIController[] playerUIControllers;
 
     public static Action CountdownStartAction;
     public static Action CountdownFinishAction;
@@ -64,10 +68,52 @@ public class UIManager : MonoBehaviour
             timeText.text = timeLeft.ToString();
 
             if (timeLeft == 10)
+            {
                 timeBoxImage.sprite = redTimeBox;
+                EliminateLastPlayer(2);
+            }
             else if (timeLeft == 0)
                 EndGame();
+
+            if (timeLeft == 20)
+                EliminateLastPlayer(3);
         }
+    }
+
+    private void EliminateLastPlayer(int childIndex)
+    {
+        Transform lastPlayer = scoreboard.GetChild(childIndex);
+
+        for (int i = 0; i < playerUIControllers.Length; i++)
+        {
+            if (playerUIControllers[i] == null)
+                continue;
+
+            if (lastPlayer == playerUIControllers[i].GetUIParent())
+            {
+                string lastPlayerName = lastPlayer.GetChild(1).GetComponent<TextMeshProUGUI>().text;
+                StartCoroutine(SetEliminatedText(lastPlayerName));
+
+                if (playerUIControllers[i].gameObject.name == "Player")
+                {
+                    EndGame();
+                    return;
+                }
+
+                playerUIControllers[i].gameObject.SetActive(false);
+                return;
+            }
+        }
+    }
+
+    private IEnumerator SetEliminatedText(string lastPlayerName)
+    {
+        eliminatedText.text = lastPlayerName + " eliminated!";
+        eliminatedText.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(1.5f);
+
+        eliminatedText.gameObject.SetActive(false);
     }
 
     public void SetScoreText(Transform scoreTextParent, int newScore)

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class PlayerUI : MonoBehaviour
+public class PlayerUIController : MonoBehaviour
 {
     [SerializeField]
     private Transform textParent;
@@ -19,14 +19,17 @@ public class PlayerUI : MonoBehaviour
     private void Awake()
     {
         nameRenderer.sortingLayerName = "UI";
-
-        LevelManager.NextLevelAction += SetNameTexts;
     }
 
     void Start()
     {
         CreateNameQueue();
         SetNameTexts();
+    }
+
+    public Transform GetUIParent()
+    {
+        return textParent;
     }
 
     public void SetScoreText(int score)
@@ -57,10 +60,5 @@ public class PlayerUI : MonoBehaviour
         nameText.text = newName;
 
         nameQueue.Enqueue(newName);
-    }
-
-    private void OnDestroy()
-    {
-        LevelManager.NextLevelAction -= SetNameTexts;
     }
 }

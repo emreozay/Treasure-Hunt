@@ -14,7 +14,7 @@ public class CollisionController : MonoBehaviour
     private Animator animator;
     private Movement movement;
 
-    private PlayerUI playerUI;
+    private PlayerUIController playerUI;
 
     private int score;
 
@@ -22,7 +22,7 @@ public class CollisionController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         movement = GetComponent<Movement>();
-        playerUI = GetComponent<PlayerUI>();
+        playerUI = GetComponent<PlayerUIController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -92,7 +92,8 @@ public class CollisionController : MonoBehaviour
 
         for (int i = 0; i < enemyMovements.Length; i++)
         {
-            enemyMovements[i].UnfreezeCharacter();
+            if (enemyMovements[i] != null)
+                enemyMovements[i].UnfreezeCharacter();
         }
     }
 
