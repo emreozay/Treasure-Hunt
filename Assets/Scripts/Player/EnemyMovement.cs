@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,10 +9,10 @@ public class EnemyMovement : Movement
     [SerializeField]
     private bool newTarget;
 
-    private NavMeshAgent agent;
-
     [SerializeField]
     private Transform holeParent;
+
+    private NavMeshAgent agent;
 
     private Vector3 newDestination;
 
@@ -35,9 +33,8 @@ public class EnemyMovement : Movement
         playerUIController = GetComponent<PlayerUIController>();
     }
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         agent.speed = MaxMovementSpeed;
 
         SetAgentDestination();
@@ -94,6 +91,27 @@ public class EnemyMovement : Movement
         {
             animator.SetBool("isRunning", false);
         }
+    }
+
+    public void FreezeCharacter()
+    {
+        animator.SetBool("isRunning", false);
+        isMoving = false;
+        agent.velocity = Vector2.zero;
+        agent.isStopped = true;
+    }
+
+    public void UnfreezeCharacter()
+    {
+        isMoving = true;
+        agent.isStopped = false;
+    }
+
+    public void SetAILevel(AILevel enemyAILevel)
+    {
+        aiLevel = enemyAILevel;
+
+        playerUIController.SetNameColor(enemyAILevel);
     }
 
     private void SetAgentDestination()
@@ -170,27 +188,6 @@ public class EnemyMovement : Movement
 
             agent.SetDestination(newDestination);
         }
-    }
-
-    public void FreezeCharacter()
-    {
-        animator.SetBool("isRunning", false);
-        isMoving = false;
-        agent.velocity = Vector2.zero;
-        agent.isStopped = true;
-    }
-
-    public void UnfreezeCharacter()
-    {
-        isMoving = true;
-        agent.isStopped = false;
-    }
-
-    public void SetAILevel(AILevel enemyAILevel)
-    {
-        aiLevel = enemyAILevel;
-
-        playerUIController.SetNameColor(enemyAILevel);
     }
 }
 

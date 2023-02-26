@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Movement
@@ -18,9 +16,8 @@ public class PlayerController : Movement
         playerRigidbody = GetComponent<Rigidbody2D>();
     }
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
 
         MovementSpeed = MaxMovementSpeed;
@@ -30,6 +27,19 @@ public class PlayerController : Movement
     {
         Move();
         Animate();
+    }
+
+    public override void ContinueMoving()
+    {
+        isMoving = true;
+        animator.SetBool("isRunning", true);
+    }
+
+    public override void StopMoving()
+    {
+        playerRigidbody.velocity = Vector2.zero;
+        isMoving = false;
+        animator.SetBool("isRunning", false);
     }
 
     protected override void Move()
@@ -56,18 +66,5 @@ public class PlayerController : Movement
         {
             animator.SetBool("isRunning", false);
         }
-    }
-
-    public override void ContinueMoving()
-    {
-        isMoving = true;
-        animator.SetBool("isRunning", true);
-    }
-
-    public override void StopMoving()
-    {
-        playerRigidbody.velocity = Vector2.zero;
-        isMoving = false;
-        animator.SetBool("isRunning", false);
     }
 }

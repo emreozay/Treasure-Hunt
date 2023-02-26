@@ -21,7 +21,6 @@ public enum LevelObjectType
     Hole
 }
 
-//Bunu baþka yere koyman gerekebilir
 [System.Serializable]
 public class SaveLevelPrefab
 {

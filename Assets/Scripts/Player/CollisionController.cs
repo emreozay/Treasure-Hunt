@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -92,7 +91,7 @@ public class CollisionController : MonoBehaviour
 
         for (int i = 0; i < enemyMovements.Length; i++)
         {
-            if (enemyMovements[i] != null)
+            if (enemyMovements[i] != null || enemyMovements[i].gameObject.activeSelf == true)
                 enemyMovements[i].UnfreezeCharacter();
         }
     }

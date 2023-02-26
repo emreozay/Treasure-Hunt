@@ -58,6 +58,43 @@ public class UIManager : MonoBehaviour
         StartCoroutine(Timer());
     }
 
+    public void SetScoreText(Transform scoreTextParent, int newScore)
+    {
+        TextMeshProUGUI scoreText = scoreTextParent.GetChild(0).GetComponent<TextMeshProUGUI>();
+        scoreText.text = newScore.ToString();
+
+        SetLeaderboard(scoreTextParent);
+    }
+
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
+    }
+
+    public void GameWin()
+    {
+        LevelManager.Instance.NextLevel();
+        gameWinPanel.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        print("Restart the level!");
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        print("Load next level!");
+    }
+
+    public void TapToStart()
+    {
+        tapToStartPanel.SetActive(false);
+        CountdownStartAction?.Invoke();
+    }
+
     private IEnumerator Timer()
     {
         int totalTime = timeLeft;
@@ -116,14 +153,6 @@ public class UIManager : MonoBehaviour
         eliminatedText.gameObject.SetActive(false);
     }
 
-    public void SetScoreText(Transform scoreTextParent, int newScore)
-    {
-        TextMeshProUGUI scoreText = scoreTextParent.GetChild(0).GetComponent<TextMeshProUGUI>();
-        scoreText.text = newScore.ToString();
-
-        SetLeaderboard(scoreTextParent);
-    }
-
     private void SetLeaderboard(Transform scoreTextParent)
     {
         TextMeshProUGUI scoreText = scoreTextParent.GetChild(0).GetComponent<TextMeshProUGUI>();
@@ -156,34 +185,5 @@ public class UIManager : MonoBehaviour
         {
             GameOver();
         }
-    }
-
-    public void GameOver()
-    {
-        gameOverPanel.SetActive(true);
-    }
-
-    public void GameWin()
-    {
-        LevelManager.Instance.NextLevel();
-        gameWinPanel.SetActive(true);
-    }
-
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        print("Restart the level!");
-    }
-
-    public void NextLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        print("Load next level!");
-    }
-
-    public void TapToStart()
-    {
-        tapToStartPanel.SetActive(false);
-        CountdownStartAction?.Invoke();
     }
 }

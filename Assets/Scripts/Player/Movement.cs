@@ -6,28 +6,14 @@ public abstract class Movement : MonoBehaviour
     public float MaxMovementSpeed = 7f;
 
     protected Animator animator;
-    private Vector2 firstPosition;
-
-    private SpriteRenderer spriteRenderer;
-    private Sprite firstSprite;
-
+    
     protected bool isMoving = false;
 
     protected virtual void Awake()
     {
         animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
 
         UIManager.CountdownFinishAction += ContinueMoving;
-
-        //LevelManager.Instance.NextLevelAction += SetFirstPosition;
-        //LevelManager.Instance.NextLevelAction += SetFirstSprite;
-    }
-
-    protected virtual void Start()
-    {
-        firstPosition = transform.position;
-        firstSprite = spriteRenderer.sprite;
     }
 
     protected abstract void Move();
@@ -38,21 +24,8 @@ public abstract class Movement : MonoBehaviour
 
     public abstract void StopMoving();
 
-    private void SetFirstPosition()
-    {
-        Time.timeScale = 0;
-        transform.position = firstPosition;
-    }
-
-    private void SetFirstSprite()
-    {
-        spriteRenderer.sprite = firstSprite;
-    }
-
     private void OnDestroy()
     {
         UIManager.CountdownFinishAction -= ContinueMoving;
-        //LevelManager.Instance.NextLevelAction -= SetFirstPosition;
-        //LevelManager.Instance.NextLevelAction -= SetFirstSprite;
     }
 }

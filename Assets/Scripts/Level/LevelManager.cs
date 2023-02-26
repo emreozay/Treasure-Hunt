@@ -1,5 +1,4 @@
 using NavMeshPlus.Components;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -14,12 +13,6 @@ public class LevelManager : MonoBehaviour
     private GameObject mapPrefab;
     [SerializeField]
     private GameObject mapBoundaries;
-
-    private GameObject environmentParent;
-    private GameObject holeParent;
-    private GameObject boostParent;
-
-    private List<GameLevel> gameLevels = new List<GameLevel>();
 
     [SerializeField]
     private NavMeshSurface navMeshSurface;
@@ -36,6 +29,12 @@ public class LevelManager : MonoBehaviour
     private AILevel enemy2;
     [SerializeField]
     private AILevel enemy3;
+
+    private GameObject environmentParent;
+    private GameObject holeParent;
+    private GameObject boostParent;
+
+    private List<GameLevel> gameLevels = new List<GameLevel>();
 
     private GameObject backgroundMap;
     private GameObject boundaries;
@@ -75,6 +74,27 @@ public class LevelManager : MonoBehaviour
         LoadCurrentLevel(false);
     }
 
+    public void CreateNewLevel()
+    {
+#if UNITY_EDITOR
+
+        gameLevels = Resources.LoadAll<GameLevel>("Levels").ToList();
+        int levelIndex = gameLevels.Count + 1;
+
+        GameLevel newLevelAsset = ScriptableObject.CreateInstance<GameLevel>();
+        newLevelAsset.levelIndex = levelIndex;
+
+        AssetDatabase.CreateAsset(newLevelAsset, "Assets/Resources/Levels/Level" + levelIndex + ".asset");
+        AssetDatabase.SaveAssets();
+
+        gameLevel = newLevelAsset;
+        ClearLevel();
+        LoadCurrentLevel(true);
+
+        EditorUtility.FocusProjectWindow();
+#endif   
+    }
+
     public void SaveLevel()
     {
         if (gameLevel == null)
@@ -99,43 +119,6 @@ public class LevelManager : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(gameLevel);
 #endif
-    }
-
-    public void LoadCurrentLevel(GameLevel level, bool loadAsSandbox = false)
-    {
-        if (level == null)
-        {
-            Debug.LogError("No Game Level Object!");
-            return;
-        }
-
-        ClearLevel();
-
-        newLevel = true;
-        LoadMap();
-
-        foreach (LevelObjectInfo levelObject in level.levelObjectList)
-        {
-            GameObject prefab = null;
-            foreach (SaveLevelPrefab levelPrefab in prefabList)
-            {
-                if (levelObject.type == levelPrefab.type)
-                {
-                    prefab = levelPrefab.prefab;
-                    break;
-                }
-            }
-
-            if (prefab == null)
-            {
-                Debug.LogWarning("Couldn't find prefab of type: " + levelObject.type);
-                continue;
-            }
-
-            GameObject newInstance = Instantiate(prefab); //You can use object pooling for this
-
-            newInstance.transform.position = levelObject.position;
-        }
     }
 
     public void LoadCurrentLevel(bool isEditor)
@@ -171,7 +154,7 @@ public class LevelManager : MonoBehaviour
                 continue;
             }
 
-            GameObject newInstance = Instantiate(prefab); //You can use object pooling for this
+            GameObject newInstance = Instantiate(prefab);
             int levelObjectTypeIndex = (int)levelObject.type;
             SetParent(newInstance.transform, levelObjectTypeIndex);
 
@@ -181,15 +164,11 @@ public class LevelManager : MonoBehaviour
         enemy1 = gameLevel.enemy1;
         enemy2 = gameLevel.enemy2;
         enemy3 = gameLevel.enemy3;
-        SetEnemyAIs();
+
+        if (!isEditor)
+            SetEnemyAIs();
 
         navMeshSurface?.BuildNavMesh();
-    }
-
-    public void LoadLevel(GameLevel level)
-    {
-        this.gameLevel = level;
-        LoadCurrentLevel(false); //bak buna
     }
 
     public Texture GetPrefabTexture(int textureIndex)
@@ -296,27 +275,6 @@ public class LevelManager : MonoBehaviour
     {
         if (gameLevels.Count > level)
             level++;
-    }
-
-    public void CreateNewLevel()
-    {
-#if UNITY_EDITOR
-
-        gameLevels = Resources.LoadAll<GameLevel>("Levels").ToList();
-        int levelIndex = gameLevels.Count + 1;
-
-        GameLevel newLevelAsset = ScriptableObject.CreateInstance<GameLevel>();
-        newLevelAsset.levelIndex = levelIndex;
-
-        AssetDatabase.CreateAsset(newLevelAsset, "Assets/Resources/Levels/Level" + levelIndex + ".asset");
-        AssetDatabase.SaveAssets();
-
-        gameLevel = newLevelAsset;
-        ClearLevel();
-        LoadCurrentLevel(true);
-
-        EditorUtility.FocusProjectWindow();
-#endif   
     }
 
     private void SetParent(Transform newObject, int index)

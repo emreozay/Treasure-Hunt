@@ -10,18 +10,6 @@ public class CameraFollow : MonoBehaviour
     [SerializeField]
     float smoothCameraFollowStrength = 5.0f;
 
-    protected Vector3 firstPosition;
-
-    private void Awake()
-    {
-        //LevelManager.Instance.NextLevelAction += SetFirstPosition;
-    }
-
-    private void Start()
-    {
-        firstPosition = transform.position;
-    }
-
     void LateUpdate()
     {
         SetCameraPosition();
@@ -34,15 +22,5 @@ public class CameraFollow : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, offset, lerpAmount);
         transform.position = new Vector3(transform.position.x, transform.position.y, offset.z);
-    }
-
-    private void SetFirstPosition()
-    {
-        transform.position = firstPosition;
-    }
-
-    private void OnDestroy()
-    {
-        //LevelManager.Instance.NextLevelAction -= SetFirstPosition;
     }
 }
